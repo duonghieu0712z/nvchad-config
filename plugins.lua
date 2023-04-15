@@ -14,6 +14,10 @@ local plugins = {
     "lukas-reineke/indent-blankline.nvim",
     opts = require "custom.configs.indent-blankline",
   },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = require "custom.configs.cmp",
+  },
 
   -- Add plugins
   {
