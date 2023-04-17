@@ -113,7 +113,7 @@ local plugins = {
     end,
   },
 
-  -- { "b0o/schemastore.nvim" },
+  { "b0o/schemastore.nvim" },
 }
 
 return plugins
