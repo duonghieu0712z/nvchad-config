@@ -69,4 +69,12 @@ M.kind_icons = {
   Watch = "",
 }
 
+M.dap = {
+  Breakpoint = "",
+  BreakpointCondition = "",
+  BreakpointRejected = "",
+  LogPoint = "",
+  Stopped = "→",
+}
+
 return M

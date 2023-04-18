@@ -114,6 +114,14 @@ local plugins = {
   },
 
   { "b0o/schemastore.nvim" },
+
+  {
+    "Darazaki/indent-o-matic",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require "custom.configs.indent-o-matic"
+    end,
+  },
 }
 
 return plugins

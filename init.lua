@@ -5,6 +5,15 @@ opt.number = true
 opt.relativenumber = false
 opt.signcolumn = "yes"
 
+opt.autoindent = true
+opt.preserveindent = true
+opt.smartindent = true
+opt.expandtab = true
+opt.smarttab = true
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
+
 opt.list = true
 opt.listchars = {
   eol = "↩", -- end of line
@@ -39,13 +48,7 @@ end
 
 local sign_define = vim.fn.sign_define
 
-local dap_signs = {
-  Breakpoint = "",
-  BreakpointCondition = "",
-  BreakpointRejected = "",
-  LogPoint = "",
-  Stopped = "→",
-}
+local dap_signs = require("custom.icons").dap
 
 for k, v in pairs(dap_signs) do
   sign_define("Dap" .. k, { text = v })
