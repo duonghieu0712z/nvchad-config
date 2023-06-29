@@ -10,7 +10,7 @@ notify.setup {
   on_close = nil,
 
   timeout = 175,
-  background_colour = "Normal",
+  background_colour = "#000000",
   minimum_width = 10,
 
   icons = {

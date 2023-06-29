@@ -29,6 +29,8 @@ opt.listchars = {
 opt.wrap = true
 opt.showbreak = "↪↪"
 
+opt.ignorecase = false
+
 if vim.loop.os_uname().sysname == "Windows_NT" then
   opt.shell = vim.fn.executable "pwsh" and "pwsh" or "powershell"
   opt.shellcmdflag =

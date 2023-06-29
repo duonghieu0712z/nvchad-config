@@ -9,8 +9,8 @@ local formatting = null_ls.builtins.formatting
 local hover = null_ls.builtins.hover
 
 require("mason-null-ls").setup {
-  automatic_installation = true,
-  automatic_setup = true,
+  automatic_installation = false,
+  handlers = {},
 }
 
 local sources = {
@@ -42,10 +42,4 @@ local sources = {
 
 null_ls.setup {
   sources,
-}
-
-require("mason-null-ls").setup_handlers {
-  function(source_name, methods)
-    require "mason-null-ls.automatic_setup"(source_name, methods)
-  end,
 }
