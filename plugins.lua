@@ -7,6 +7,7 @@ local plugins = {
 
   {
     "williamboman/mason.nvim",
+    event = { "VimEnter" },
     opts = require "custom.configs.mason",
   },
 
@@ -14,15 +15,11 @@ local plugins = {
     "lukas-reineke/indent-blankline.nvim",
     opts = require "custom.configs.indent-blankline",
   },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = require "custom.configs.cmp",
-  },
 
   -- Add plugins
   {
     "williamboman/mason-lspconfig.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "VimEnter" },
     config = function()
       require "custom.configs.lspconfig"
     end,
@@ -30,7 +27,7 @@ local plugins = {
 
   {
     "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "VimEnter" },
     dependencies = {
       "williamboman/mason.nvim",
       "jose-elias-alvarez/null-ls.nvim",
@@ -42,7 +39,7 @@ local plugins = {
 
   {
     "jay-babu/mason-nvim-dap.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "VimEnter" },
     dependencies = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
@@ -68,6 +65,17 @@ local plugins = {
     config = function()
       require "custom.configs.dap-ui"
     end,
+  },
+
+  {
+    "hrsh7th/cmp-cmdline",
+    event = "CmdlineEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp-document-symbol",
+    },
+    config = function()
+      require "custom.configs.cmp"
+    end
   },
 
   {
@@ -113,7 +121,10 @@ local plugins = {
     end,
   },
 
-  { "b0o/schemastore.nvim" },
+  {
+    "b0o/schemastore.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+  },
 
   {
     "Darazaki/indent-o-matic",
