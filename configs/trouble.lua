@@ -1,8 +1,6 @@
-local trouble = require "trouble"
-
 local diag_icons = require("custom.icons").diagnostics
 
-trouble.setup {
+local M = {
   position = "bottom",
 
   height = 10,
@@ -34,3 +32,5 @@ trouble.setup {
 
   use_diagnostic_signs = false,
 }
+
+return M

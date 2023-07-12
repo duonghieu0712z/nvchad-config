@@ -13,13 +13,23 @@ local plugins = {
 
   {
     "lukas-reineke/indent-blankline.nvim",
+    event = { "BufEnter" },
     opts = require "custom.configs.indent-blankline",
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    opts = require "custom.configs.cmp",
   },
 
   -- Add plugins
   {
     "williamboman/mason-lspconfig.nvim",
     event = { "VimEnter" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "b0o/schemastore.nvim",
+    },
     config = function()
       require "custom.configs.lspconfig"
     end,
@@ -74,7 +84,7 @@ local plugins = {
       "hrsh7th/cmp-nvim-lsp-document-symbol",
     },
     config = function()
-      require "custom.configs.cmp"
+      require "custom.configs.cmp-cmdline"
     end
   },
 
@@ -99,9 +109,8 @@ local plugins = {
   {
     "folke/trouble.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      require "custom.configs.trouble"
-    end,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = require "custom.configs.trouble",
   },
 
   {
@@ -119,11 +128,6 @@ local plugins = {
     config = function()
       require "custom.configs.cinnamon"
     end,
-  },
-
-  {
-    "b0o/schemastore.nvim",
-    event = { "BufReadPre", "BufNewFile" },
   },
 
   {

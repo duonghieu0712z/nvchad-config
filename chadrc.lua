@@ -6,6 +6,8 @@ M.ui = {
   hl_add = highlights.add,
   hl_override = highlights.override,
 
+  theme = "gatekeeper",
+
   telescope = {
     style = "bordered",
   },
