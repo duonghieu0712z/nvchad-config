@@ -7,13 +7,13 @@ local plugins = {
 
   {
     "williamboman/mason.nvim",
-    event = { "VimEnter" },
+    event = "VimEnter",
     opts = require "custom.configs.mason",
   },
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = { "BufEnter" },
+    event = "BufEnter",
     opts = require "custom.configs.indent-blankline",
   },
 
@@ -25,7 +25,7 @@ local plugins = {
   -- Add plugins
   {
     "williamboman/mason-lspconfig.nvim",
-    event = { "VimEnter" },
+    event = "VimEnter",
     dependencies = {
       "williamboman/mason.nvim",
       "b0o/schemastore.nvim",
@@ -37,7 +37,7 @@ local plugins = {
 
   {
     "jay-babu/mason-null-ls.nvim",
-    event = { "VimEnter" },
+    event = "VimEnter",
     dependencies = {
       "williamboman/mason.nvim",
       "jose-elias-alvarez/null-ls.nvim",
@@ -49,7 +49,7 @@ local plugins = {
 
   {
     "jay-babu/mason-nvim-dap.nvim",
-    event = { "VimEnter" },
+    event = "VimEnter",
     dependencies = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
@@ -61,7 +61,7 @@ local plugins = {
 
   {
     "theHamsta/nvim-dap-virtual-text",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "BufEnter",
     dependencies = { "mfussenegger/nvim-dap" },
     config = function()
       require "custom.configs.dap-virtual-text"
@@ -70,7 +70,7 @@ local plugins = {
 
   {
     "rcarriga/nvim-dap-ui",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "BufEnter",
     dependencies = { "mfussenegger/nvim-dap" },
     config = function()
       require "custom.configs.dap-ui"
@@ -90,7 +90,7 @@ local plugins = {
 
   {
     "stevearc/aerial.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "BufEnter",
     cmd = { "AerialToggle", "AerialOpen", "AerialInfo" },
     config = function()
       require "custom.configs.aerial"
@@ -100,7 +100,7 @@ local plugins = {
 
   {
     "SmiteshP/nvim-navic",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "BufEnter",
     config = function()
       require "custom.configs.navic"
     end,
@@ -108,7 +108,7 @@ local plugins = {
 
   {
     "folke/trouble.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "BufEnter",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = require "custom.configs.trouble",
   },
@@ -132,7 +132,7 @@ local plugins = {
 
   {
     "Darazaki/indent-o-matic",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "BufEnter",
     config = function()
       require "custom.configs.indent-o-matic"
     end,
