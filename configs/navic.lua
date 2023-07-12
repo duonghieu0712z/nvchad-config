@@ -16,6 +16,8 @@ navic.setup {
   depth_limit_indicator = "…",
 }
 
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
 -- local utils = require "configs.core.utils"
 -- local colors = require "configs.theme.colors"
 
