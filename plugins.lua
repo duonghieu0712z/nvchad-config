@@ -94,7 +94,7 @@ local plugins = {
     cmd = { "AerialToggle", "AerialOpen", "AerialInfo" },
     config = function()
       require "custom.configs.aerial"
-      require("telescope").load_extension "aerial"
+      require "telescope".load_extension "aerial"
     end,
   },
 
@@ -118,7 +118,7 @@ local plugins = {
     event = "VimEnter",
     config = function()
       require "custom.configs.notify"
-      require("telescope").load_extension "notify"
+      require "telescope".load_extension "notify"
     end,
   },
 

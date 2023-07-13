@@ -10,9 +10,9 @@ M.add = {
 }
 
 M.override = {
-  IndentBlanklineContextChar = { fg = "#8a2be2", nocombine = true },
+  IndentBlanklineContextChar      = { fg = "#8a2be2", nocombine = true },
   IndentBlanklineContextSpaceChar = { fg = "#8a2be2", nocombine = true },
-  IndentBlanklineContextStart = { sp = "#8a2be2", underline = true },
+  IndentBlanklineContextStart     = { sp = "#8a2be2", underline = true },
 }
 
 return M

@@ -1,6 +1,6 @@
 local notify = require "notify"
 
-local diag_icons = require("custom.icons").diagnostics
+local diag_icons = require "custom.icons".diagnostics
 
 notify.setup {
   render = "default",
@@ -15,8 +15,8 @@ notify.setup {
 
   icons = {
     ERROR = diag_icons.error,
-    WARN = diag_icons.warning,
-    INFO = diag_icons.information,
+    WARN  = diag_icons.warning,
+    INFO  = diag_icons.information,
     DEBUG = diag_icons.debug,
     TRACE = diag_icons.trace,
   },

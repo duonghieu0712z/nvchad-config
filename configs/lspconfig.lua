@@ -4,15 +4,15 @@
 local lspconfig = require "lspconfig"
 
 local on_attach = function(client, bufnr)
-  require("plugins.configs.lspconfig").on_attach(client, bufnr)
+  require "plugins.configs.lspconfig".on_attach(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
     require "nvim-navic".attach(client, bufnr)
   end
 end
 
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local capabilities = require "plugins.configs.lspconfig".capabilities
 
-require("mason-lspconfig").setup {
+require "mason-lspconfig".setup {
   automatic_installation = true,
   handlers = {
     function(server_name)
@@ -28,7 +28,7 @@ require("mason-lspconfig").setup {
         capabilities = capabilities,
         settings = {
           json = {
-            schemas = require("schemastore").json.schemas(),
+            schemas = require "schemastore".json.schemas(),
             validate = { enable = true },
           },
         },
@@ -41,7 +41,7 @@ require("mason-lspconfig").setup {
         capabilities = capabilities,
         settings = {
           yaml = {
-            schemas = require("schemastore").yaml.schemas(),
+            schemas = require "schemastore".yaml.schemas(),
           },
         },
       }

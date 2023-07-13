@@ -1,6 +1,6 @@
 local aerial = require "aerial"
 
-local kind_icons = require("custom.icons").kind_icons
+local kind_icons = require "custom.icons".kind_icons
 
 local guide_icons = {
   whitespace = "  ",
@@ -11,10 +11,10 @@ local guide_icons = {
 
 local mappings = {
   -- ["<leader>ct"] = { "<cmd>AerialToggle!<cr>", " Toggle symbol outline" },
-  ["{"] = { "<cmd>AerialPrev<cr>", "Previous symbol" },
-  ["}"] = { "<cmd>AerialNext<cr>", "Next symbol" },
-  ["[["] = { "<cmd>AerialPrevUp<cr>", "Previous up symbol" },
-  ["]]"] = { "<cmd>AerialNextUp<cr>", "Next up symbol" },
+  -- ["{"] = { "<cmd>AerialPrev<cr>", "Previous symbol" },
+  -- ["}"] = { "<cmd>AerialNext<cr>", "Next symbol" },
+  -- ["[["] = { "<cmd>AerialPrevUp<cr>", "Previous up symbol" },
+  -- ["]]"] = { "<cmd>AerialNextUp<cr>", "Next up symbol" },
 }
 
 aerial.setup {
@@ -55,7 +55,7 @@ aerial.setup {
   nerd_font = "auto",
 
   on_attach = function(bufnr)
-    require("which-key").register(mappings, {
+    require "which-key".register(mappings, {
       mode    = "n",
       silent  = true,
       noremap = true,
