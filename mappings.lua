@@ -13,7 +13,7 @@ M.custom = {
   n = {
     [";"] = { ":", "Enter command mode", opts },
 
-    ["<leader>q"] = { ":q<CR>", "Quit", opts },
+    ["<leader>q"] = { ":qall<CR>", "Quit", opts },
     ["<leader>s"] = { ":w<CR>", "Save file", opts },
 
     ["<leader>tt"] = {
