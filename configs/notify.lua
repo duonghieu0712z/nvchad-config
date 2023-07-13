@@ -1,8 +1,6 @@
-local notify = require "notify"
-
 local diag_icons = require "custom.icons".diagnostics
 
-notify.setup {
+local M = {
   render = "default",
   stages = "fade_in_slide_out",
 
@@ -22,4 +20,4 @@ notify.setup {
   },
 }
 
-vim.notify = notify
+return M

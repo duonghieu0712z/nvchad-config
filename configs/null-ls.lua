@@ -25,9 +25,6 @@ local sources = {
   completion.tags,
 
   -- Diagnostics
-  -- diagnostics.golangci_lint.with {
-  --   extra_args = { "--allow-parallel-runners" },
-  -- },
   diagnostics.todo_comments,
   diagnostics.trail_space,
 

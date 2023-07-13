@@ -1,5 +1,3 @@
-local indent = require "indent-o-matic"
-
 local filetypes = {
   "html",
   "css",
@@ -16,7 +14,7 @@ local filetypes = {
   "toml",
 }
 
-local options = {
+local M = {
   max_lines = 2048,
   standard_widths = { 2, 4 },
   skip_multiline = false,
@@ -26,9 +24,9 @@ local options = {
 }
 
 for _, v in ipairs(filetypes) do
-  options["filetype_" .. v] = {
+  M["filetype_" .. v] = {
     standard_widths = { 2 },
   }
 end
 
-indent.setup(options)
+return M

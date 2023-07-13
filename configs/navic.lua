@@ -1,8 +1,6 @@
-local navic = require "nvim-navic"
-
 local kind_icons = require "custom.icons".kind_icons
 
-navic.setup {
+local M = {
   icons = kind_icons,
   lsp = {
     auto_attach = true,
@@ -15,3 +13,5 @@ navic.setup {
   lazy_update_context = false,
   click = true,
 }
+
+return M

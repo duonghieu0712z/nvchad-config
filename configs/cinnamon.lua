@@ -1,6 +1,6 @@
-local cinnamon = require "cinnamon"
-
-cinnamon.setup {
+local M = {
   default_keymaps = true,
   extra_keymaps = true,
 }
+
+return M

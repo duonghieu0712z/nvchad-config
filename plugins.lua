@@ -54,18 +54,14 @@ local plugins = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
     },
-    config = function()
-      require "custom.configs.dap"
-    end,
+    opts = require "custom.configs.dap",
   },
 
   {
     "theHamsta/nvim-dap-virtual-text",
     event = "BufEnter",
     dependencies = { "mfussenegger/nvim-dap" },
-    config = function()
-      require "custom.configs.dap-virtual-text"
-    end,
+    opts = require "custom.configs.dap-virtual-text",
   },
 
   {
@@ -92,8 +88,9 @@ local plugins = {
     "stevearc/aerial.nvim",
     event = "BufEnter",
     cmd = { "AerialToggle", "AerialOpen", "AerialInfo" },
-    config = function()
-      require "custom.configs.aerial"
+    opts = require "custom.configs.aerial",
+    config = function(_, opts)
+      require "aerial".setup(opts)
       require "telescope".load_extension "aerial"
     end,
   },
@@ -101,9 +98,7 @@ local plugins = {
   {
     "SmiteshP/nvim-navic",
     event = "BufEnter",
-    config = function()
-      require "custom.configs.navic"
-    end,
+    opts = require "custom.configs.navic",
   },
 
   {
@@ -128,26 +123,24 @@ local plugins = {
   {
     "rcarriga/nvim-notify",
     event = "VimEnter",
-    config = function()
-      require "custom.configs.notify"
+    opts = require "custom.configs.notify",
+    config = function(_, opts)
+      require "notify".setup(opts)
       require "telescope".load_extension "notify"
+      vim.notify = require "notify"
     end,
   },
 
   {
     "declancm/cinnamon.nvim",
     event = "VimEnter",
-    config = function()
-      require "custom.configs.cinnamon"
-    end,
+    opts = require "custom.configs.cinnamon",
   },
 
   {
     "Darazaki/indent-o-matic",
     event = "BufEnter",
-    config = function()
-      require "custom.configs.indent-o-matic"
-    end,
+    opts = require "custom.configs.indent-o-matic",
   },
 }
 

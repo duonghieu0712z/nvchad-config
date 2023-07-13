@@ -1,5 +1,3 @@
-local aerial = require "aerial"
-
 local kind_icons = require "custom.icons".kind_icons
 
 local guide_icons = {
@@ -17,7 +15,7 @@ local mappings = {
   -- ["]]"] = { "<cmd>AerialNextUp<cr>", "Next up symbol" },
 }
 
-aerial.setup {
+local M = {
   backends = { "treesitter", "lsp", "markdown", "man" },
 
   layout = {
@@ -96,3 +94,7 @@ aerial.setup {
     update_delay = 100,
   },
 }
+
+-- require "telescope".load_extension "aerial"
+
+return M

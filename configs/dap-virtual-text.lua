@@ -1,6 +1,6 @@
-local dap_virtual_text = require "nvim-dap-virtual-text"
-
-dap_virtual_text.setup {
+local M = {
   highlight_new_as_changed = true,
   all_references = true,
 }
+
+return M
