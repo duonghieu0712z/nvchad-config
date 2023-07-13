@@ -107,6 +107,18 @@ local plugins = {
   },
 
   {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    event = "BufEnter",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = require "custom.configs.barbecue",
+  },
+
+  {
     "folke/trouble.nvim",
     event = "BufEnter",
     dependencies = { "nvim-tree/nvim-web-devicons" },
