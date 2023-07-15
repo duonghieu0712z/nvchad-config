@@ -44,6 +44,7 @@ local M = {
     "nvcheatsheet",
     "",
     -- Custom
+    "checkhealth",
     "NvimTree",
     "Trouble",
     "dapui_scopes",
