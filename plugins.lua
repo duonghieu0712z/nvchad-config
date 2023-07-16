@@ -22,6 +22,11 @@ local plugins = {
     opts = require "custom.configs.cmp",
   },
 
+  {
+    "folke/which-key.nvim",
+    keys = { "<leader>", '"', "'", "`", "c", "v", "g", "z", "d", "y" },
+  },
+
   -- Add plugins
   {
     "williamboman/mason-lspconfig.nvim",

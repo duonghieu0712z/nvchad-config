@@ -39,6 +39,8 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
   opt.shellxquote  = ""
 end
 
+-- vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx" })
+
 local sign_define = vim.fn.sign_define
 
 local dap_signs = icons.dap
