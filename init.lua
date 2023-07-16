@@ -1,27 +1,33 @@
-local icons        = require "custom.icons"
+local icons = require "custom.icons"
 
-local opt          = vim.opt
+local opt = vim.opt
 
-opt.number         = true
-opt.relativenumber = false
-opt.signcolumn     = "yes"
+do
+  opt.number         = true
+  opt.relativenumber = false
+  opt.signcolumn     = "yes"
 
-opt.autoindent     = true
-opt.preserveindent = true
-opt.smartindent    = true
-opt.expandtab      = true
-opt.smarttab       = true
-opt.tabstop        = 4
-opt.shiftwidth     = 4
-opt.softtabstop    = 4
+  opt.autoindent     = true
+  opt.preserveindent = true
+  opt.smartindent    = true
+  opt.expandtab      = true
+  opt.smarttab       = true
+  opt.tabstop        = 4
+  opt.shiftwidth     = 4
+  opt.softtabstop    = 4
 
-opt.list           = true
-opt.listchars      = icons.listchars
+  opt.list           = true
+  opt.listchars      = icons.listchars
 
-opt.wrap           = true
-opt.showbreak      = "↪↪"
+  opt.wrap           = true
+  opt.showbreak      = "↪↪"
 
-opt.ignorecase     = false
+  opt.foldmethod     = "expr"
+  opt.foldexpr       = "nvim_treesitter#foldexpr()"
+  opt.foldenable     = false
+
+  opt.ignorecase     = false
+end
 
 if vim.loop.os_uname().sysname == "Windows_NT" then
   opt.shell        = vim.fn.executable "pwsh" and "pwsh" or "powershell"

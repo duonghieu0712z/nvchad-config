@@ -47,6 +47,7 @@ local M = {
     "checkhealth",
     "NvimTree",
     "Trouble",
+    "aerial",
     "dapui_scopes",
     "dapui_breakpoints",
     "dapui_stacks",

@@ -94,6 +94,11 @@ local plugins = {
   },
 
   {
+    "anuvyklack/pretty-fold.nvim",
+    event = "BufEnter",
+  },
+
+  {
     "stevearc/aerial.nvim",
     event = "BufEnter",
     cmd = { "AerialToggle", "AerialOpen", "AerialInfo" },
