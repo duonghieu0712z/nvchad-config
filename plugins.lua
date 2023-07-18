@@ -86,7 +86,7 @@ local plugins = {
     },
     config = function()
       require "custom.configs.cmp-cmdline"
-    end
+    end,
   },
 
   {
@@ -95,7 +95,7 @@ local plugins = {
     event = "VeryLazy",
     config = function()
       require("nvim-surround").setup {}
-    end
+    end,
   },
 
   {
@@ -109,8 +109,8 @@ local plugins = {
     cmd = { "AerialToggle", "AerialOpen", "AerialInfo" },
     opts = require "custom.configs.aerial",
     config = function(_, opts)
-      require "aerial".setup(opts)
-      require "telescope".load_extension "aerial"
+      require("aerial").setup(opts)
+      require("telescope").load_extension "aerial"
     end,
   },
 
@@ -144,8 +144,8 @@ local plugins = {
     event = "VimEnter",
     opts = require "custom.configs.notify",
     config = function(_, opts)
-      require "notify".setup(opts)
-      require "telescope".load_extension "notify"
+      require("notify").setup(opts)
+      require("telescope").load_extension "notify"
       vim.notify = require "notify"
     end,
   },

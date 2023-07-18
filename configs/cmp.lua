@@ -2,12 +2,12 @@ local M = {}
 
 dofile(vim.g.base46_cache .. "cmp")
 
-local cmp_ui = require "core.utils".load_config().ui.cmp
+local cmp_ui = require("core.utils").load_config().ui.cmp
 local cmp_style = cmp_ui.style
 
 M.formatting = {
   format = function(_, item)
-    local icons = require "custom.icons".kind_icons
+    local icons = require("custom.icons").kind_icons
     local icon = (cmp_ui.icons and icons[item.kind]) or ""
 
     if cmp_style == "atom" or cmp_style == "atom_colored" then

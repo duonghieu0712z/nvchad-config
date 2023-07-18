@@ -1,10 +1,10 @@
-local kind_icons = require "custom.icons".kind_icons
+local kind_icons = require("custom.icons").kind_icons
 
 local guide_icons = {
   whitespace = "  ",
   nested_top = "│ ",
-  mid_item   = "├─",
-  last_item  = "└─",
+  mid_item = "├─",
+  last_item = "└─",
 }
 
 local mappings = {
@@ -53,12 +53,12 @@ local M = {
   nerd_font = "auto",
 
   on_attach = function(bufnr)
-    require "which-key".register(mappings, {
-      mode    = "n",
-      silent  = true,
+    require("which-key").register(mappings, {
+      mode = "n",
+      silent = true,
       noremap = true,
-      nowait  = true,
-      buffer  = bufnr,
+      nowait = true,
+      buffer = bufnr,
     })
   end,
 

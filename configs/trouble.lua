@@ -1,4 +1,4 @@
-local diag_icons = require "custom.icons".diagnostics
+local diag_icons = require("custom.icons").diagnostics
 
 local M = {
   position = "bottom",
@@ -23,11 +23,11 @@ local M = {
 
   auto_jump = { "lsp_definitions" },
   signs = {
-    error       = diag_icons.error,
-    warning     = diag_icons.warning,
-    hint        = diag_icons.hint,
+    error = diag_icons.error,
+    warning = diag_icons.warning,
+    hint = diag_icons.hint,
     information = diag_icons.information,
-    other       = diag_icons.default,
+    other = diag_icons.default,
   },
 
   use_diagnostic_signs = false,

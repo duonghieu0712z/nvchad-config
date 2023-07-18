@@ -1,4 +1,4 @@
-local kind_icons = require "custom.icons".kind_icons
+local kind_icons = require("custom.icons").kind_icons
 
 local M = {
   attach_navic = true,
@@ -14,8 +14,8 @@ local M = {
   context_follow_icon_color = false,
 
   symbols = {
-    modified  = "●",
-    ellipsis  = "…",
+    modified = "●",
+    ellipsis = "…",
     separator = "",
   },
 

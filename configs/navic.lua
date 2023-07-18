@@ -1,4 +1,4 @@
-local kind_icons = require "custom.icons".kind_icons
+local kind_icons = require("custom.icons").kind_icons
 
 local M = {
   icons = kind_icons,

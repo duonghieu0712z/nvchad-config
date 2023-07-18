@@ -3,11 +3,11 @@
 
 local lspconfig = require "lspconfig"
 
-local on_attach = require "plugins.configs.lspconfig".on_attach
+local on_attach = require("plugins.configs.lspconfig").on_attach
 
-local capabilities = require "plugins.configs.lspconfig".capabilities
+local capabilities = require("plugins.configs.lspconfig").capabilities
 
-require "mason-lspconfig".setup {
+require("mason-lspconfig").setup {
   automatic_installation = true,
   handlers = {
     function(server_name)
@@ -18,12 +18,12 @@ require "mason-lspconfig".setup {
     end,
 
     ["jsonls"] = function()
-      lspconfig["jsonls"].setup {
+      lspconfig.jsonls.setup {
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {
           json = {
-            schemas = require "schemastore".json.schemas(),
+            schemas = require("schemastore").json.schemas(),
             validate = { enable = true },
           },
         },
@@ -31,17 +31,41 @@ require "mason-lspconfig".setup {
     end,
 
     ["yamlls"] = function()
-      lspconfig["yamlls"].setup {
+      lspconfig.yamlls.setup {
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {
           yaml = {
-            schemas = require "schemastore".yaml.schemas(),
+            schemas = require("schemastore").yaml.schemas(),
           },
         },
       }
-    end
+    end,
   },
+
+  ["lua_ls"] = function()
+    lspconfig.lua_ls.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+          workspace = {
+            library = {
+              [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+              [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+              [vim.fn.stdpath "data" .. "/lazy/extensions/nvchad_types"] = true,
+              [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
+            },
+            maxPreload = 100000,
+            preloadFileSize = 10000,
+          },
+        },
+      },
+    }
+  end,
 }
 
 local servers = {}
