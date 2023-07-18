@@ -11,9 +11,9 @@ M.disabled = {}
 
 M.custom = {
   n = {
-    [";"] = { ":", "Enter command mode", opts },
+    -- [";"] = { ":", "Enter command mode", opts },
 
-    ["<leader>q"] = { ":qall<CR>", "Quit", opts },
+    ["<leader>q"] = { ":qa<CR>", "Quit", opts },
     ["<leader>s"] = { ":w<CR>", "Save file", opts },
 
     ["<leader>tt"] = {
