@@ -23,7 +23,7 @@ local M = {
 
   char = "▏",
   char_blankline = "",
-  space_char_blankline = " ",
+  space_char_blankline = "",
   context_char = "▏",
   context_char_blankline = "▏",
 
