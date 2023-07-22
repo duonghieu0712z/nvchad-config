@@ -17,8 +17,8 @@ require("mason-lspconfig").setup {
       }
     end,
 
-    ["jsonls"] = function()
-      lspconfig.jsonls.setup {
+    ["jsonls"] = function(server_name)
+      lspconfig[server_name].setup {
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {
@@ -30,8 +30,8 @@ require("mason-lspconfig").setup {
       }
     end,
 
-    ["yamlls"] = function()
-      lspconfig.yamlls.setup {
+    ["yamlls"] = function(server_name)
+      lspconfig[server_name].setup {
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {
@@ -41,31 +41,31 @@ require("mason-lspconfig").setup {
         },
       }
     end,
-  },
 
-  ["lua_ls"] = function()
-    lspconfig.lua_ls.setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            library = {
-              [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-              [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-              [vim.fn.stdpath "data" .. "/lazy/extensions/nvchad_types"] = true,
-              [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
+    ["lua_ls"] = function(server_name)
+      lspconfig[server_name].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
             },
-            maxPreload = 100000,
-            preloadFileSize = 10000,
+            workspace = {
+              library = {
+                [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+                [vim.fn.stdpath "data" .. "/lazy/extensions/nvchad_types"] = true,
+                [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
+              },
+              maxPreload = 100000,
+              preloadFileSize = 10000,
+            },
           },
         },
-      },
-    }
-  end,
+      }
+    end,
+  },
 }
 
 local servers = {}
