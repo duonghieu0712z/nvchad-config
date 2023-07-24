@@ -22,10 +22,10 @@ local M = {
   show_current_context_start_on_current_line = true,
 
   char = "▏",
-  char_blankline = "",
-  space_char_blankline = "",
+  char_blankline = " ",
+  space_char_blankline = " ",
   context_char = "▏",
-  context_char_blankline = "▏",
+  context_char_blankline = " ",
 
   char_highlight_list = highlight_list,
   space_char_highlight_list = highlight_list,
