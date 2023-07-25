@@ -8,7 +8,7 @@ local alpha = function()
 end
 
 if g.neovide then
-  o.guifont = "FiraCode Nerd Font:h13"
+  o.guifont = "FiraCode Nerd Font:h11"
 
   g.neovide_transparency = transparency
   g.transparency = transparency

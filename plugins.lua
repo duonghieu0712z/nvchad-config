@@ -24,6 +24,17 @@ local plugins = {
   },
 
   {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope-ui-select.nvim",
+      "nvim-telescope/telescope-dap.nvim",
+      "gbrlsnchs/telescope-lsp-handlers.nvim"
+    },
+    opts = require "custom.configs.telescope",
+  },
+
+  {
     "folke/which-key.nvim",
     keys = { "<leader>", '"', "'", "`", "c", "v", "g", "z", "d", "y" },
   },
@@ -90,9 +101,18 @@ local plugins = {
     event = "CmdlineEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp-document-symbol",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
     },
     config = function()
       require "custom.configs.cmp-cmdline"
+    end,
+  },
+
+  {
+    "rcarriga/cmp-dap",
+    event = "BufEnter",
+    config = function()
+      require "custom.configs.cmp-dap"
     end,
   },
 
@@ -118,10 +138,6 @@ local plugins = {
     event = "BufEnter",
     cmd = { "AerialToggle", "AerialOpen", "AerialInfo" },
     opts = require "custom.configs.aerial",
-    config = function(_, opts)
-      require("aerial").setup(opts)
-      require("telescope").load_extension "aerial"
-    end,
   },
 
   {
@@ -157,7 +173,6 @@ local plugins = {
     opts = require "custom.configs.notify",
     config = function(_, opts)
       require("notify").setup(opts)
-      require("telescope").load_extension "notify"
       vim.notify = require "notify"
     end,
   },
