@@ -8,8 +8,11 @@ local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
 local hover = null_ls.builtins.hover
 
-require("mason-null-ls").setup {
-  automatic_installation = false,
+local mason_null_ls = require "mason-null-ls"
+
+mason_null_ls.setup {
+  ensure_installed = {},
+  automatic_installation = true,
   handlers = {},
 }
 

@@ -7,7 +7,10 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
-require("mason-lspconfig").setup {
+local mason_lsp = require "mason-lspconfig"
+
+mason_lsp.setup {
+  ensure_installed = {},
   automatic_installation = true,
   handlers = {
     function(server_name)

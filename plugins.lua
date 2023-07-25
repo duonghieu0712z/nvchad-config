@@ -59,7 +59,9 @@ local plugins = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
     },
-    opts = require "custom.configs.dap",
+    config = function()
+      require "custom.configs.dap"
+    end,
   },
 
   {
