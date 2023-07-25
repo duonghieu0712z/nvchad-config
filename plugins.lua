@@ -1,5 +1,6 @@
 local plugins = {
   -- Override plugins
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = require "custom.configs.nvim-treesitter",
@@ -28,6 +29,8 @@ local plugins = {
   },
 
   -- Add plugins
+
+  -- Mason
   {
     "williamboman/mason-lspconfig.nvim",
     event = "VimEnter",
@@ -52,6 +55,7 @@ local plugins = {
     end,
   },
 
+  -- DAP
   {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VimEnter",
@@ -80,6 +84,7 @@ local plugins = {
     end,
   },
 
+  -- Completions
   {
     "hrsh7th/cmp-cmdline",
     event = "CmdlineEnter",
@@ -91,6 +96,7 @@ local plugins = {
     end,
   },
 
+  -- Surround
   {
     "kylechui/nvim-surround",
     version = "*",
@@ -100,11 +106,13 @@ local plugins = {
     end,
   },
 
+  -- Folding
   {
     "anuvyklack/pretty-fold.nvim",
     event = "BufEnter",
   },
 
+  -- Outline
   {
     "stevearc/aerial.nvim",
     event = "BufEnter",
@@ -134,6 +142,7 @@ local plugins = {
     opts = require "custom.configs.barbecue",
   },
 
+  -- Trouble
   {
     "folke/trouble.nvim",
     event = "BufEnter",
@@ -141,6 +150,7 @@ local plugins = {
     opts = require "custom.configs.trouble",
   },
 
+  -- Notification
   {
     "rcarriga/nvim-notify",
     event = "VimEnter",
@@ -152,12 +162,14 @@ local plugins = {
     end,
   },
 
+  -- Smooth scroll
   {
     "declancm/cinnamon.nvim",
     event = "VimEnter",
     opts = require "custom.configs.cinnamon",
   },
 
+  -- Indent
   {
     "Darazaki/indent-o-matic",
     event = "BufEnter",

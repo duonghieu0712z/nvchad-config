@@ -1,6 +1,9 @@
+---@diagnostic disable: missing-fields
 local dapui = require "dapui"
 
-dapui.setup {}
+dapui.setup {
+  expand_lines = false,
+}
 
 local dap = require "dap"
 
