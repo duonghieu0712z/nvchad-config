@@ -28,12 +28,6 @@ M.diagnostics = {
   note = "󱜾",
 }
 
-M.gitsigns = {
-  add = "▎",
-  change = "▎",
-  delete = "",
-}
-
 M.kind_icons = {
   Array = "",
   Boolean = "",

@@ -95,6 +95,4 @@ local M = {
   },
 }
 
--- require "telescope".load_extension "aerial"
-
 return M

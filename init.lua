@@ -44,8 +44,9 @@ end
 local sign_define = vim.fn.sign_define
 
 local dap_signs = icons.dap
+vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#ff0000" })
 for k, v in pairs(dap_signs) do
-  sign_define("Dap" .. k, { text = v })
+  sign_define("Dap" .. k, { text = v, texthl = "DapBreakpoint" })
 end
 
 local name_signs = {
