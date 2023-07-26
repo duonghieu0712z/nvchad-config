@@ -27,9 +27,9 @@ local plugins = {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope-ui-select.nvim",
       "nvim-telescope/telescope-dap.nvim",
-      "gbrlsnchs/telescope-lsp-handlers.nvim"
+      "DuongHieu0712z/telescope-ui-select.nvim",
+      "gbrlsnchs/telescope-lsp-handlers.nvim",
     },
     opts = require "custom.configs.telescope",
   },
@@ -184,7 +184,7 @@ local plugins = {
     opts = require "custom.configs.cinnamon",
   },
 
-  -- Indent
+  -- Guess indent
   {
     "Darazaki/indent-o-matic",
     event = "BufEnter",
