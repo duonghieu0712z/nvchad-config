@@ -7,6 +7,11 @@ local plugins = {
   },
 
   {
+    "lewis6991/gitsigns.nvim",
+    opts = require "custom.configs.gitsigns",
+  },
+
+  {
     "williamboman/mason.nvim",
     event = "VimEnter",
     opts = require "custom.configs.mason",
