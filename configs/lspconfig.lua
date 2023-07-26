@@ -2,80 +2,64 @@
 -- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
 
 local lspconfig = require "lspconfig"
+local mason_lsp = require "mason-lspconfig"
 
 local on_attach = require("plugins.configs.lspconfig").on_attach
-
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
-local mason_lsp = require "mason-lspconfig"
+local setup_server = function(opts)
+  local default_opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+  opts = vim.F.if_nil(opts, {})
+  vim.tbl_deep_extend("keep", opts, default_opts)
+  return function(server_name)
+    lspconfig[server_name].setup(opts)
+  end
+end
 
 mason_lsp.setup {
   ensure_installed = {},
   automatic_installation = true,
   handlers = {
-    function(server_name)
-      lspconfig[server_name].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-      }
-    end,
+    setup_server(),
 
-    ["jsonls"] = function(server_name)
-      lspconfig[server_name].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-          json = {
-            schemas = require("schemastore").json.schemas(),
-            validate = { enable = true },
-          },
+    ["jsonls"] = setup_server {
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
         },
-      }
-    end,
+      },
+    },
 
-    ["yamlls"] = function(server_name)
-      lspconfig[server_name].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-          yaml = {
-            schemas = require("schemastore").yaml.schemas(),
-          },
+    ["yamlls"] = setup_server {
+      settings = {
+        yaml = {
+          schemas = require("schemastore").yaml.schemas(),
         },
-      }
-    end,
+      },
+    },
 
-    ["lua_ls"] = function(server_name)
-      lspconfig[server_name].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
+    ["lua_ls"] = setup_server {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+          workspace = {
+            library = {
+              [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+              [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+              [vim.fn.stdpath "data" .. "/lazy/extensions/nvchad_types"] = true,
+              [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
             },
-            workspace = {
-              library = {
-                [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-                [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-                [vim.fn.stdpath "data" .. "/lazy/extensions/nvchad_types"] = true,
-                [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
-              },
-              maxPreload = 100000,
-              preloadFileSize = 10000,
-            },
+            maxPreload = 100000,
+            preloadFileSize = 10000,
           },
         },
-      }
-    end,
+      },
+    },
   },
 }
-
-local servers = {}
-
-for _, server_name in ipairs(servers) do
-  lspconfig[server_name].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
