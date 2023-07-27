@@ -11,8 +11,6 @@ M.disabled = {}
 
 M.custom = {
   n = {
-    -- [";"] = { ":", "Enter command mode", opts },
-
     ["<leader>q"] = { ":qa<CR>", "Quit", opts },
     ["<leader>s"] = { ":w<CR>", "Save file", opts },
 
@@ -26,6 +24,20 @@ M.custom = {
 
   i = {
     ["jk"] = { "<ESC>", "Escape insert mode", opts },
+  },
+}
+
+M.terminal = {
+  t = {
+    ["<ESC>"] = { "<C-\\><C-n>", "Escape insert terminal mode" },
+    ["jk"] = { "<C-\\><C-n>", "Escape insert terminal mode" },
+
+    ["<C-h>"] = { "<C-\\><C-n><C-w>h", "Window left" },
+    ["<C-l>"] = { "<C-\\><C-n><C-w>l", "Window right" },
+    ["<C-j>"] = { "<C-\\><C-n><C-w>j", "Window down" },
+    ["<C-k>"] = { "<C-\\><C-n><C-w>k", "Window up" },
+
+    ["<C-q>"] = { "<C-\\><C-n><C-w>q", "Close terminal" },
   },
 }
 
@@ -95,14 +107,14 @@ M.dap = {
 
 M.trouble = {
   n = {
-    ["<leader>mx"] = { "<cmd>TroubleToggle<cr>", " Toggle trouble" },
-    ["<leader>mw"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", " Toggle trouble workspace diagnostics" },
-    ["<leader>md"] = { "<cmd>TroubleToggle document_diagnostics<cr>", " Toggle trouble document diagnostics" },
-    ["<leader>mq"] = { "<cmd>TroubleToggle quickfix<cr>", " Toggle trouble quickfix" },
-    ["<leader>ml"] = { "<cmd>TroubleToggle loclist<cr>", " Toggle trouble loclist" },
-    ["<leader>mD"] = { "<cmd>TroubleToggle lsp_definitions<cr>", " Toggle trouble LSP definitions" },
-    ["<leader>mT"] = { "<cmd>TroubleToggle lsp_type_definitions<cr>", " Toggle trouble LSP type definitions" },
-    ["gR"] = { "<cmd>TroubleToggle lsp_references<cr>", " Toggle trouble LSP references" },
+    ["<leader>mx"] = { "<cmd>TroubleToggle<cr>", " Toggle trouble" },
+    ["<leader>mw"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", " Toggle trouble workspace diagnostics" },
+    ["<leader>md"] = { "<cmd>TroubleToggle document_diagnostics<cr>", " Toggle trouble document diagnostics" },
+    ["<leader>mq"] = { "<cmd>TroubleToggle quickfix<cr>", " Toggle trouble quickfix" },
+    ["<leader>ml"] = { "<cmd>TroubleToggle loclist<cr>", " Toggle trouble loclist" },
+    ["<leader>mD"] = { "<cmd>TroubleToggle lsp_definitions<cr>", " Toggle trouble LSP definitions" },
+    ["<leader>mT"] = { "<cmd>TroubleToggle lsp_type_definitions<cr>", " Toggle trouble LSP type definitions" },
+    ["gR"] = { "<cmd>TroubleToggle lsp_references<cr>", " Toggle trouble LSP references" },
   },
 }
 

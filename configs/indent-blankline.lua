@@ -35,29 +35,16 @@ local M = {
   filetype_exclude = {
     "help",
     "terminal",
-    "lazy",
     "lspinfo",
-    "TelescopePrompt",
     "TelescopeResults",
-    "mason",
-    "nvdash",
-    "nvcheatsheet",
     "",
-    -- Custom
-    "checkhealth",
-    "NvimTree",
-    "Trouble",
-    "aerial",
-    "dapui_scopes",
-    "dapui_breakpoints",
-    "dapui_stacks",
-    "dapui_watches",
-    "dapui_repl",
-    "dapui_console",
   },
 
   buftype_exclude = {
+    "",
     "nofile",
+    "prompt",
+    "help",
   },
 }
 
