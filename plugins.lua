@@ -191,6 +191,14 @@ local plugins = {
     opts = require "custom.configs.noice",
   },
 
+  -- Easy motion
+  {
+    "phaazon/hop.nvim",
+    branch = "v2",
+    event = "VeryLazy",
+    opts = require "custom.configs.hop",
+  },
+
   -- Smooth scroll
   {
     "declancm/cinnamon.nvim",

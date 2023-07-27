@@ -48,20 +48,4 @@ for k, v in pairs(dap_signs) do
   sign_define("Dap" .. k, { text = v, texthl = "DapBreakpoint" })
 end
 
-local name_signs = {
-  error = "Error",
-  warning = "Warn",
-  information = "Info",
-  hint = "Hint",
-}
-local diag_signs = icons.diagnostics
-for k, v in pairs(name_signs) do
-  local name = "DiagnosticSign" .. v
-  sign_define(name, {
-    text = diag_signs[k],
-    texthl = name,
-    numhl = name,
-  })
-end
-
 require "custom.neovide"
