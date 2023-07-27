@@ -121,6 +121,16 @@ local plugins = {
     end,
   },
 
+  -- Highlight variable
+  {
+    "RRethy/vim-illuminate",
+    event = "VeryLazy",
+    opts = require "custom.configs.illuminate",
+    config = function(_, opts)
+      require("illuminate").configure(opts)
+    end,
+  },
+
   -- Surround
   {
     "kylechui/nvim-surround",
