@@ -13,7 +13,7 @@ local plugins = {
 
   {
     "williamboman/mason.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     opts = require "custom.configs.mason",
   },
 
@@ -49,7 +49,7 @@ local plugins = {
   -- Mason
   {
     "williamboman/mason-lspconfig.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     dependencies = {
       "williamboman/mason.nvim",
       "b0o/schemastore.nvim",
@@ -61,7 +61,7 @@ local plugins = {
 
   {
     "jay-babu/mason-null-ls.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     dependencies = {
       "williamboman/mason.nvim",
       "jose-elias-alvarez/null-ls.nvim",
@@ -74,7 +74,7 @@ local plugins = {
   -- DAP
   {
     "jay-babu/mason-nvim-dap.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     dependencies = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
@@ -86,14 +86,14 @@ local plugins = {
 
   {
     "theHamsta/nvim-dap-virtual-text",
-    event = "BufEnter",
+    event = "VeryLazy",
     dependencies = { "mfussenegger/nvim-dap" },
     opts = require "custom.configs.dap-virtual-text",
   },
 
   {
     "rcarriga/nvim-dap-ui",
-    event = "BufEnter",
+    event = "VeryLazy",
     dependencies = { "mfussenegger/nvim-dap" },
     config = function()
       require "custom.configs.dap-ui"
@@ -115,7 +115,7 @@ local plugins = {
 
   {
     "rcarriga/cmp-dap",
-    event = "BufEnter",
+    event = "VeryLazy",
     config = function()
       require "custom.configs.cmp-dap"
     end,
@@ -134,27 +134,25 @@ local plugins = {
   -- Folding
   {
     "anuvyklack/pretty-fold.nvim",
-    event = "BufEnter",
+    event = "VeryLazy",
   },
 
   -- Outline
   {
-    "stevearc/aerial.nvim",
-    event = "BufEnter",
-    cmd = { "AerialToggle", "AerialOpen", "AerialInfo" },
-    opts = require "custom.configs.aerial",
+    "simrat39/symbols-outline.nvim",
+    event = "VeryLazy",
+    opts = require "custom.configs.symbols-outline",
   },
 
   {
     "utilyre/barbecue.nvim",
     name = "barbecue",
     version = "*",
-    event = "BufEnter",
+    event = "VeryLazy",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
       {
         "SmiteshP/nvim-navic",
-        event = "BufEnter",
         opts = require "custom.configs.navic",
       },
     },
@@ -164,7 +162,7 @@ local plugins = {
   -- Trouble
   {
     "folke/trouble.nvim",
-    event = "BufEnter",
+    event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = require "custom.configs.trouble",
   },
@@ -178,10 +176,6 @@ local plugins = {
       {
         "rcarriga/nvim-notify",
         opts = require "custom.configs.notify",
-        config = function(_, opts)
-          require("notify").setup(opts)
-          vim.notify = require "notify"
-        end,
       },
     },
     opts = require "custom.configs.noice",
@@ -190,14 +184,14 @@ local plugins = {
   -- Smooth scroll
   {
     "declancm/cinnamon.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     opts = require "custom.configs.cinnamon",
   },
 
   -- Guess indent
   {
     "Darazaki/indent-o-matic",
-    event = "BufEnter",
+    event = "VeryLazy",
     opts = require "custom.configs.indent-o-matic",
   },
 }

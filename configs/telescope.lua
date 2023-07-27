@@ -8,7 +8,7 @@ local M = {
       },
     },
   },
-  extensions_list = { "themes", "terms", "aerial", "ui-select", "dap", "lsp_handlers", "noice", "notify" },
+  extensions_list = { "themes", "terms", "ui-select", "dap", "lsp_handlers", "noice", "notify" },
 }
 
 return M
