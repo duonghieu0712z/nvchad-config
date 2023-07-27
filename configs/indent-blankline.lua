@@ -55,6 +55,10 @@ local M = {
     "dapui_repl",
     "dapui_console",
   },
+
+  buftype_exclude = {
+    "nofile",
+  },
 }
 
 return M

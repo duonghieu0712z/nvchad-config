@@ -146,19 +146,17 @@ local plugins = {
   },
 
   {
-    "SmiteshP/nvim-navic",
-    event = "BufEnter",
-    opts = require "custom.configs.navic",
-  },
-
-  {
     "utilyre/barbecue.nvim",
     name = "barbecue",
     version = "*",
     event = "BufEnter",
     dependencies = {
-      "SmiteshP/nvim-navic",
       "nvim-tree/nvim-web-devicons",
+      {
+        "SmiteshP/nvim-navic",
+        event = "BufEnter",
+        opts = require "custom.configs.navic",
+      },
     },
     opts = require "custom.configs.barbecue",
   },
@@ -173,13 +171,20 @@ local plugins = {
 
   -- Notification
   {
-    "rcarriga/nvim-notify",
-    event = "VimEnter",
-    opts = require "custom.configs.notify",
-    config = function(_, opts)
-      require("notify").setup(opts)
-      vim.notify = require "notify"
-    end,
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      {
+        "rcarriga/nvim-notify",
+        opts = require "custom.configs.notify",
+        config = function(_, opts)
+          require("notify").setup(opts)
+          vim.notify = require "notify"
+        end,
+      },
+    },
+    opts = require "custom.configs.noice",
   },
 
   -- Smooth scroll

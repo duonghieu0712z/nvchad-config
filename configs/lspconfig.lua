@@ -13,9 +13,9 @@ local setup_server = function(opts)
     capabilities = capabilities,
   }
   opts = vim.F.if_nil(opts, {})
-  vim.tbl_deep_extend("keep", opts, default_opts)
+  vim.tbl_deep_extend("force", default_opts, opts)
   return function(server_name)
-    lspconfig[server_name].setup(opts)
+    lspconfig[server_name].setup(default_opts)
   end
 end
 
