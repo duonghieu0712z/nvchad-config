@@ -40,6 +40,26 @@ local M = {
       ["vim.lsp.util.stylize_markdown"] = true,
       ["cmp.entry.get_documentation"] = true,
     },
+
+    progress = {
+      enabled = true,
+    },
+
+    hover = {
+      enabled = true,
+    },
+
+    signature = {
+      enabled = false,
+    },
+
+    message = {
+      enabled = true,
+    },
+
+    documentation = {
+      enabled = true,
+    },
   },
 
   presets = {
