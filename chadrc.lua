@@ -12,11 +12,7 @@ M.ui = {
     style = "bordered",
   },
 
-  statusline = {
-    theme = "default",
-    separator_style = "arrow",
-    overriden_modules = nil,
-  },
+  statusline = require "custom.statusline",
 
   nvdash = {
     load_on_startup = true,

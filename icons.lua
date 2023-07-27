@@ -28,6 +28,13 @@ M.diagnostics = {
   note = "󱜾",
 }
 
+M.git = {
+  branch = "",
+  added = "",
+  changed = "",
+  removed = "",
+}
+
 M.kind_icons = {
   Array = "",
   Boolean = "",
