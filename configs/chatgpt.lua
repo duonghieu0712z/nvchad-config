@@ -5,6 +5,12 @@ local M = {
   popup_layout = {
     default = "right",
   },
+  popup_input = {
+    submit = "<Enter>",
+  },
+  openai_params = {
+    max_tokens = 3000,
+  },
 }
 
 return M

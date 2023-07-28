@@ -149,4 +149,14 @@ M.trouble = {
   },
 }
 
+M.chatgpt = {
+  [""] = {
+    ["<leader>cg"] = { "<cmd>ChatGPT<cr>", "Chat GPT" },
+    ["<leader>ca"] = { "<cmd>ChatGPTActAs<cr>", "Chat GPT Act As" },
+    ["<leader>ce"] = { "<cmd>ChatGPTEditWithInstructions<cr>", "Chat GPT Edit With Instructions" },
+    -- ["<leader>cd"] = { "<cmd>ChatGPTCompleteCode<cr>", "Chat GPT Complete Code" },
+    ["<leader>cr"] = { "<cmd>ChatGPTRun<cr>", "Chat GPT Run" },
+  },
+}
+
 return M
