@@ -41,7 +41,6 @@ local M = {
   },
 
   buftype_exclude = {
-    "",
     "nofile",
     "prompt",
     "help",
