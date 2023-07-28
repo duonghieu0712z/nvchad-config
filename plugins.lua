@@ -217,6 +217,18 @@ local plugins = {
     event = "VeryLazy",
     opts = require "custom.configs.indent-o-matic",
   },
+
+  -- Chat GPT
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    opts = require "custom.configs.chatgpt",
+  },
 }
 
 return plugins
