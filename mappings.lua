@@ -6,6 +6,12 @@ local opts = {
   nowait = true,
 }
 
+local change_scale_factor = function(delta)
+  if vim.g.neovide then
+    vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+  end
+end
+
 -- Disabled default keymaps
 M.disabled = {}
 
@@ -38,6 +44,31 @@ M.terminal = {
     ["<C-k>"] = { "<C-\\><C-n><C-w>k", "Window up" },
 
     ["<C-q>"] = { "<C-\\><C-n><C-w>q", "Close terminal" },
+  },
+}
+
+M.neovide = {
+  [""] = {
+    ["<A-0>"] = {
+      function()
+        if vim.g.neovide then
+          vim.g.neovide_scale_factor = 1
+        end
+      end,
+      "Reset font size",
+    },
+    ["<A-=>"] = {
+      function()
+        change_scale_factor(1.25)
+      end,
+      "Increase font size",
+    },
+    ["<A-->"] = {
+      function()
+        change_scale_factor(0.8)
+      end,
+      "Decrease font size",
+    },
   },
 }
 

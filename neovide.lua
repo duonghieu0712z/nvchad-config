@@ -15,4 +15,5 @@ if g.neovide then
   g.neovide_background_color = "#0f1117" .. alpha()
 
   g.neovide_hide_mouse_when_typing = true
+  g.neovide_scale_factor = 1.0
 end
