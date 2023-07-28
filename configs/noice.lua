@@ -1,5 +1,6 @@
 local icons = require "custom.icons"
 local diag_icons = icons.diagnostics
+local kind_icons = icons.kind_icons
 
 local M = {
   cmdline = {
@@ -19,7 +20,7 @@ local M = {
   popupmenu = {
     enabled = true,
     backend = "nui",
-    kind_icons = {},
+    kind_icons = kind_icons,
   },
 
   redirect = {

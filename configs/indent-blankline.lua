@@ -35,8 +35,6 @@ local M = {
   filetype_exclude = {
     "help",
     "terminal",
-    "lspinfo",
-    "TelescopeResults",
     "",
   },
 

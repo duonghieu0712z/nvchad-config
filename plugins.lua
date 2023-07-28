@@ -161,9 +161,14 @@ local plugins = {
     event = "VeryLazy",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
       {
         "SmiteshP/nvim-navic",
         opts = require "custom.configs.navic",
+      },
+      {
+        "SmiteshP/nvim-navbuddy",
+        opts = require "custom.configs.navbuddy",
       },
     },
     opts = require "custom.configs.barbecue",
