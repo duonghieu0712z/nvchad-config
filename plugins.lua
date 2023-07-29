@@ -230,6 +230,15 @@ local plugins = {
     },
     opts = require "custom.configs.chatgpt",
   },
+
+  -- AI code generate
+  {
+    "Exafunction/codeium.vim",
+    event = "VeryLazy",
+    config = function()
+      require "custom.configs.codeium"
+    end,
+  },
 }
 
 return plugins
