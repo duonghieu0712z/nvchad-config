@@ -199,4 +199,4 @@ start using Codeium.
 
 Copy the token from your browser and paste it into API token request.
 
-Use `Ctrl+R *`, to paste the token into Popup.
+Use `Ctrl-R *` or `Ctrl-R +`, to paste the token into Popup.
