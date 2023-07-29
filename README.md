@@ -29,6 +29,17 @@ No effort is required to maintain backward compatibility.
 
 ## Preview
 
+![nv-dash](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/7674dfec-9ce4-4923-a699-2c6d04d4079f)
+![telescope](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/8f10ed31-9af5-45f0-a00f-0605c0dc97dd)
+![file](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/e6d94fb6-1fb9-46d7-8248-a55528bedb59)
+![chatgpt](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/e3f8a1ad-36e7-4080-8144-9a4b5cd8ff95)
+![nvimtree](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/40c4e41e-7205-4dbd-995a-6d3564cc6217)
+![search](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/d8882e49-f474-49e5-abdc-a99f2c75192c)
+![cmdline](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/471122eb-2237-425c-af62-446cd1930723)
+![symboloutline](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/e7520515-c798-4ae3-b7c3-2f608556f6f8)
+![code](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/3d8167ba-a1d2-469f-b0b2-48c05bd423cc)
+![theme](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/bd4cc832-314a-460f-b383-aab728741920)
+
 ## Features
 
 - Plugins management with [Lazy.nvim](https://github.com/folke/lazy.nvim)
