@@ -4,8 +4,9 @@ local opt = vim.opt
 
 do
   opt.number = true
-  opt.relativenumber = false
+  opt.relativenumber = true
   opt.signcolumn = "yes"
+  opt.colorcolumn = "60,80,120"
 
   opt.autoindent = true
   opt.preserveindent = true
@@ -21,6 +22,9 @@ do
 
   opt.wrap = true
   opt.showbreak = "↪↪"
+
+  opt.showcmd = false
+  opt.cmdheight = 0
 
   opt.foldmethod = "expr"
   opt.foldexpr = "nvim_treesitter#foldexpr()"
