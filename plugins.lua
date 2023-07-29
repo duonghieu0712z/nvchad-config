@@ -1,3 +1,4 @@
+---@diagnostic disable: different-requires
 local load_mappings = require("core.utils").load_mappings
 
 local plugins = {
@@ -5,6 +6,7 @@ local plugins = {
 
   {
     "lukas-reineke/indent-blankline.nvim",
+    event = "BufEnter",
     opts = require "custom.configs.indent-blankline",
   },
 
@@ -237,7 +239,7 @@ local plugins = {
   -- Chat GPT
   {
     "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
+    cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTEditWithInstructions", "ChatGPTRun", "ChatGPTCompleteCode" },
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
@@ -252,7 +254,8 @@ local plugins = {
   -- AI code generate
   {
     "Exafunction/codeium.vim",
-    event = "BufWrite",
+    event = "BufRead",
+    cmd = "Codeium",
     init = function()
       require "custom.configs.codeium"
       load_mappings("codeium", { expr = true })

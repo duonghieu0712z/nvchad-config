@@ -192,6 +192,12 @@ M.codeium = {
       end,
       "Codeium accept",
     },
+    ["<C-\\>"] = {
+      function()
+        return vim.fn["codeium#Accept"]()
+      end,
+      "Codeium accept",
+    },
     ["<C-Down>"] = {
       function()
         return vim.fn["codeium#CycleCompletions"](1)
