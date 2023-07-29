@@ -2,6 +2,7 @@
 
 - [My Neovim \& NvChad Configuration](#my-neovim--nvchad-configuration)
   - [Introduction](#introduction)
+  - [Preview](#preview)
   - [Features](#features)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
@@ -25,6 +26,8 @@ To reduce the possibility of damage, this configuration is only maintained for
 [the latest Neovim stable release](https://github.com/neovim/neovim/releases/tag/stable)
 and [the latest NvChad](https://nvchad.com/docs/quickstart/install).
 No effort is required to maintain backward compatibility.
+
+## Preview
 
 ## Features
 
@@ -193,7 +196,7 @@ in your `$HOME` folder:
 gpg -e openai.txt -r <USER-ID>
 ```
 
-> **_Note_**: You can use passphrase for security
+> **_Note_**: You can use passphrase for security,
 > but I recommend not using passphrase for convenience.
 
 If the previous command run successfully, a new filename `openai.txt.gpg` will be
