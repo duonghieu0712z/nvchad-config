@@ -219,6 +219,15 @@ local plugins = {
     opts = require "custom.configs.indent-o-matic",
   },
 
+  -- Markdown preview
+  {
+    "iamcco/markdown-preview.nvim",
+    ft = "markdown",
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+
   -- Chat GPT
   {
     "jackMort/ChatGPT.nvim",

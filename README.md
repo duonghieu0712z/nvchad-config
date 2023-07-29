@@ -5,13 +5,10 @@
   - [Features](#features)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
-    - [Linux/macOS](#linuxmacos)
-    - [Windows (Powershell)](#windows-powershell)
   - [Uninstall](#uninstall)
-    - [Linux/macOS](#linuxmacos-1)
-    - [Windows (Powershell)](#windows-powershell-1)
   - [Get healthy](#get-healthy)
   - [Update NvChad](#update-nvchad)
+  - [Markdown preview setup](#markdown-preview-setup)
   - [ChatGPT secret management](#chatgpt-secret-management)
   - [Codium authentication](#codium-authentication)
 
@@ -54,6 +51,7 @@ No effort is required to maintain backward compatibility.
 - Easy motion with [hop](https://github.com/phaazon/hop.nvim)
 - Smooth scroll with [cinnamon.nvim](https://github.com/declancm/cinnamon.nvim)
 - Guess indent with [indent-o-matic](https://github.com/Darazaki/indent-o-matic)
+- Markdown preview with [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - AI chat with [Chat GPT](https://github.com/jackMort/ChatGPT.nvim)
 - AI code generator with [Codeium](https://github.com/Exafunction/codeium.vim)
 
@@ -85,15 +83,13 @@ No effort is required to maintain backward compatibility.
 
 ## Install
 
-### Linux/macOS
-
 ```bash
+# Linux/macOS
 git clone https://github.com/DuongHieu0712z/nvchad-config.git ~/.config/nvim/lua/custom
 ```
 
-### Windows (Powershell)
-
-```pwsh
+```powershell
+# Windows (Powershell)
 git clone https://github.com/DuongHieu0712z/nvchad-config.git $env:LOCALAPPDATA\nvim\lua\custom
 ```
 
@@ -102,17 +98,15 @@ git clone https://github.com/DuongHieu0712z/nvchad-config.git $env:LOCALAPPDATA\
 > **_Note_**: These commands only delete this config, not NvChad config.
 > To delete NvChad config, please go [here](https://nvchad.com/docs/quickstart/install#uninstall).
 
-### Linux/macOS
-
 ```bash
+# Linux/macOS
 rm -rf ~/.config/nvim/lua/custom
 rm -rf ~/.local/share/nvim
 rm -rf ~/.cache/nvim
 ```
 
-### Windows (Powershell)
-
-```pwsh
+```powershell
+# Windows (Powershell)
 rm -r -fo $env:LOCALAPPDATA\nvim\lua\custom
 rm -r -fo $env:LOCALAPPDATA\nvim-data
 ```
@@ -161,6 +155,29 @@ To update NvChad to the latest version
 ```vim
 :NvChadUpdate
 ```
+
+## Markdown preview setup
+
+If you build `markdown-preview.nvim` get error, you can fix it by:
+
+- Change to `$XDG_DATA_HOME/lazy/markdown-preview.nvim` directory:
+
+  ```bash
+  # Linux/macOS
+  cd ~/.local/share-nvim/lazy/markdown-preview.nvim
+  ```
+
+  ```powershell
+  # Windows (Powershell)
+  cd $env:LOCALAPPDATA\nvim-data\lazy\markdown-preview.nvim
+  ```
+
+- Build plugin:
+
+  ```bash
+  yarn install
+  yarn build
+  ```
 
 ## ChatGPT secret management
 
