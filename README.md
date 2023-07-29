@@ -30,6 +30,7 @@ No effort is required to maintain backward compatibility.
 ## Preview
 
 ![nv-dash](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/7674dfec-9ce4-4923-a699-2c6d04d4079f)
+![cheatsheet](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/5056b52c-5228-4ef4-a6db-17d638599be2)
 ![telescope](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/8f10ed31-9af5-45f0-a00f-0605c0dc97dd)
 ![file](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/e6d94fb6-1fb9-46d7-8248-a55528bedb59)
 ![chatgpt](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/e3f8a1ad-36e7-4080-8144-9a4b5cd8ff95)
