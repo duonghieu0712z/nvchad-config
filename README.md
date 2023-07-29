@@ -68,10 +68,10 @@ No effort is required to maintain backward compatibility.
   - `curl`, `wget`
   - `unzip`, `gzip`, `tar`, `7zip`,...
   - [`lua`](https://www.lua.org/download.html)
-  - [`nodejs`](https://nodejs.org/en/download/) and `npm`
+  - [`nodejs`](https://nodejs.org/en/download/), `npm` and `yarn`
   - [`python3`](https://www.python.org/downloads/) and `pip3`
   - [`ripgrep`](https://github.com/BurntSushi/ripgrep) or
-    [`fd`](https://github.com/sharkdp/fd) -
+    [`fd`](https://github.com/sharkdp/fd) for
     live grep Telescope search
 - Terminal with true color support.
 - Use a [**`Nerd Font v3+`**](https://www.nerdfonts.com/) in your terminal emulator,
@@ -90,7 +90,7 @@ git clone https://github.com/DuongHieu0712z/nvchad-config.git ~/.config/nvim/lua
 
 ```powershell
 # Windows (Powershell)
-git clone https://github.com/DuongHieu0712z/nvchad-config.git $env:LOCALAPPDATA\nvim\lua\custom
+git clone https://github.com/DuongHieu0712z/nvchad-config.git ~\AppData\Local\nvim\lua\custom
 ```
 
 ## Uninstall
@@ -107,8 +107,8 @@ rm -rf ~/.cache/nvim
 
 ```powershell
 # Windows (Powershell)
-rm -r -fo $env:LOCALAPPDATA\nvim\lua\custom
-rm -r -fo $env:LOCALAPPDATA\nvim-data
+rm -r -fo ~\AppData\Local\nvim\lua\custom
+rm -r -fo ~\AppData\Local\nvim-data
 ```
 
 ## Get healthy
@@ -160,7 +160,7 @@ To update NvChad to the latest version
 
 If you build `markdown-preview.nvim` get error, you can fix it by:
 
-- Change to `$XDG_DATA_HOME/lazy/markdown-preview.nvim` directory:
+- Change to `markdown-preview.nvim` directory:
 
   ```bash
   # Linux/macOS
@@ -169,7 +169,7 @@ If you build `markdown-preview.nvim` get error, you can fix it by:
 
   ```powershell
   # Windows (Powershell)
-  cd $env:LOCALAPPDATA\nvim-data\lazy\markdown-preview.nvim
+  cd ~\AppData\Local\nvim-data\lazy\markdown-preview.nvim
   ```
 
 - Build plugin:
@@ -192,6 +192,9 @@ in your `$HOME` folder:
 ```bash
 gpg -e openai.txt -r <USER-ID>
 ```
+
+> **_Note_**: You can use passphrase for security
+> but I recommend not using passphrase for convenience.
 
 If the previous command run successfully, a new filename `openai.txt.gpg` will be
 generated in your `$HOME` folder.
