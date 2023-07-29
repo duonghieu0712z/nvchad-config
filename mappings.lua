@@ -7,9 +7,7 @@ local opts = {
 }
 
 local change_scale_factor = function(delta)
-  if vim.g.neovide then
-    vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
-  end
+  vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
 end
 
 -- Disabled default keymaps
@@ -34,7 +32,7 @@ M.custom = {
   },
 }
 
-M.terminal = {
+M.nvterm = {
   t = {
     ["<ESC>"] = { "<C-\\><C-n>", "Escape insert terminal mode" },
     ["jk"] = { "<C-\\><C-n>", "Escape insert terminal mode" },
@@ -46,15 +44,24 @@ M.terminal = {
 
     ["<C-q>"] = { "<C-\\><C-n><C-w>q", "Close terminal" },
   },
+
+  n = {
+    ["<leader>i"] = {
+      function()
+        require("nvterm.terminal").new "float"
+      end,
+      "New floating term",
+    },
+  },
 }
 
 M.neovide = {
+  plugin = true,
+
   [""] = {
     ["<A-0>"] = {
       function()
-        if vim.g.neovide then
-          vim.g.neovide_scale_factor = 1
-        end
+        vim.g.neovide_scale_factor = 1
       end,
       "Reset font size",
     },
@@ -71,9 +78,20 @@ M.neovide = {
       "Decrease font size",
     },
   },
+
+  n = {
+    ["<leader>tn"] = {
+      function()
+        vim.g.neovide_transparency = vim.g.neovide_transparency == 1 and 0.92 or 1
+      end,
+      "Toggle Neovide transparency",
+    },
+  },
 }
 
 M.dap = {
+  plugin = true,
+
   n = {
     ["<F5>"] = {
       function()
@@ -138,6 +156,8 @@ M.dap = {
 }
 
 M.trouble = {
+  plugin = true,
+
   n = {
     ["<leader>mx"] = { "<cmd>TroubleToggle<cr>", " Toggle trouble" },
     ["<leader>mw"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", " Toggle trouble workspace diagnostics" },
@@ -151,12 +171,45 @@ M.trouble = {
 }
 
 M.chatgpt = {
+  plugin = true,
+
   [""] = {
     ["<leader>cg"] = { "<cmd>ChatGPT<cr>", "Chat GPT" },
     ["<leader>ca"] = { "<cmd>ChatGPTActAs<cr>", "Chat GPT Act As" },
     ["<leader>ce"] = { "<cmd>ChatGPTEditWithInstructions<cr>", "Chat GPT Edit With Instructions" },
     -- ["<leader>cd"] = { "<cmd>ChatGPTCompleteCode<cr>", "Chat GPT Complete Code" },
     ["<leader>cr"] = { "<cmd>ChatGPTRun<cr>", "Chat GPT Run" },
+  },
+}
+
+M.codeium = {
+  plugin = true,
+
+  i = {
+    ["<C-Enter>"] = {
+      function()
+        return vim.fn["codeium#Accept"]()
+      end,
+      "Codeium accept",
+    },
+    ["<C-Down>"] = {
+      function()
+        return vim.fn["codeium#CycleCompletions"](1)
+      end,
+      "Codeium next cycle completions",
+    },
+    ["<C-Up>"] = {
+      function()
+        return vim.fn["codeium#CycleCompletions"](-1)
+      end,
+      "Codeium previous cycle completions",
+    },
+    ["<C-x>"] = {
+      function()
+        return vim.fn["codeium#Clear"]()
+      end,
+      "Codeium clear",
+    },
   },
 }
 

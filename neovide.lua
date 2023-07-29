@@ -16,4 +16,6 @@ if g.neovide then
 
   g.neovide_hide_mouse_when_typing = true
   g.neovide_scale_factor = 1.0
+
+  require("core.utils").load_mappings "neovide"
 end

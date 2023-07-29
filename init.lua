@@ -43,9 +43,6 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
   opt.shellxquote = ""
 end
 
--- Disable default codium mappings
-vim.g.codeium_disable_bindings = 1
-
 -- vim.api.nvim_create_autocmd({ "BufEnter" }, { pattern = { "*" }, command = "normal zx" })
 
 local sign_define = vim.fn.sign_define

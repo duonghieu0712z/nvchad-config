@@ -29,6 +29,10 @@ No effort is required to maintain backward compatibility.
 
 ## Preview
 
+<!-- markdownlint-disable html -->
+<details>
+<summary>Click to expand</summary>
+
 ![nv-dash](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/7674dfec-9ce4-4923-a699-2c6d04d4079f)
 ![cheatsheet](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/5056b52c-5228-4ef4-a6db-17d638599be2)
 ![telescope](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/8f10ed31-9af5-45f0-a00f-0605c0dc97dd)
@@ -40,6 +44,9 @@ No effort is required to maintain backward compatibility.
 ![symboloutline](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/e7520515-c798-4ae3-b7c3-2f608556f6f8)
 ![code](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/3d8167ba-a1d2-469f-b0b2-48c05bd423cc)
 ![theme](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/bd4cc832-314a-460f-b383-aab728741920)
+
+</details>
+<!-- markdownlint-enable html -->
 
 ## Features
 

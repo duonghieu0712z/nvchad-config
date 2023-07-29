@@ -1,5 +1,12 @@
+local load_mappings = require("core.utils").load_mappings
+
 local plugins = {
   -- Override plugins
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    opts = require "custom.configs.indent-blankline",
+  },
 
   {
     "nvim-treesitter/nvim-treesitter",
@@ -13,14 +20,7 @@ local plugins = {
 
   {
     "williamboman/mason.nvim",
-    event = "VeryLazy",
     opts = require "custom.configs.mason",
-  },
-
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufEnter",
-    opts = require "custom.configs.indent-blankline",
   },
 
   {
@@ -80,6 +80,9 @@ local plugins = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
     },
+    init = function()
+      load_mappings "dap"
+    end,
     config = function()
       require "custom.configs.dap"
     end,
@@ -87,14 +90,14 @@ local plugins = {
 
   {
     "theHamsta/nvim-dap-virtual-text",
-    event = "VeryLazy",
+    event = "BufEnter",
     dependencies = { "mfussenegger/nvim-dap" },
     opts = require "custom.configs.dap-virtual-text",
   },
 
   {
     "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
+    event = "BufEnter",
     dependencies = { "mfussenegger/nvim-dap" },
     config = function()
       require "custom.configs.dap-ui"
@@ -116,7 +119,7 @@ local plugins = {
 
   {
     "rcarriga/cmp-dap",
-    event = "VeryLazy",
+    event = "BufEnter",
     config = function()
       require "custom.configs.cmp-dap"
     end,
@@ -125,7 +128,7 @@ local plugins = {
   -- Highlight variable
   {
     "RRethy/vim-illuminate",
-    event = "VeryLazy",
+    event = "BufEnter",
     opts = require "custom.configs.illuminate",
     config = function(_, opts)
       require("illuminate").configure(opts)
@@ -136,7 +139,7 @@ local plugins = {
   {
     "kylechui/nvim-surround",
     version = "*",
-    event = "VeryLazy",
+    event = "BufEnter",
     config = function()
       require("nvim-surround").setup {}
     end,
@@ -145,13 +148,13 @@ local plugins = {
   -- Folding
   {
     "anuvyklack/pretty-fold.nvim",
-    event = "VeryLazy",
+    event = "BufEnter",
   },
 
   -- Outline
   {
     "simrat39/symbols-outline.nvim",
-    event = "VeryLazy",
+    event = "BufEnter",
     opts = require "custom.configs.symbols-outline",
   },
 
@@ -159,7 +162,7 @@ local plugins = {
     "utilyre/barbecue.nvim",
     name = "barbecue",
     version = "*",
-    event = "VeryLazy",
+    event = "BufEnter",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
@@ -178,8 +181,11 @@ local plugins = {
   -- Trouble
   {
     "folke/trouble.nvim",
-    event = "VeryLazy",
+    event = "BufEnter",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    init = function()
+      load_mappings "trouble"
+    end,
     opts = require "custom.configs.trouble",
   },
 
@@ -201,21 +207,21 @@ local plugins = {
   {
     "phaazon/hop.nvim",
     branch = "v2",
-    event = "VeryLazy",
+    event = "BufEnter",
     opts = require "custom.configs.hop",
   },
 
   -- Smooth scroll
   {
     "declancm/cinnamon.nvim",
-    event = "VeryLazy",
+    event = "BufEnter",
     opts = require "custom.configs.cinnamon",
   },
 
   -- Guess indent
   {
     "Darazaki/indent-o-matic",
-    event = "VeryLazy",
+    event = "BufEnter",
     opts = require "custom.configs.indent-o-matic",
   },
 
@@ -237,15 +243,19 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
+    init = function()
+      load_mappings "chatgpt"
+    end,
     opts = require "custom.configs.chatgpt",
   },
 
   -- AI code generate
   {
     "Exafunction/codeium.vim",
-    event = "VeryLazy",
-    config = function()
+    event = "BufWrite",
+    init = function()
       require "custom.configs.codeium"
+      load_mappings("codeium", { expr = true })
     end,
   },
 }
