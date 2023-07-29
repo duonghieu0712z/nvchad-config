@@ -1,5 +1,6 @@
 local cmp = require "cmp"
 
+-- Search
 cmp.setup.cmdline({ "/", "?" }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
@@ -9,6 +10,7 @@ cmp.setup.cmdline({ "/", "?" }, {
   }),
 })
 
+-- Command
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({

@@ -25,6 +25,7 @@ local plugins = {
 
   {
     "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
     opts = require "custom.configs.cmp",
   },
 
