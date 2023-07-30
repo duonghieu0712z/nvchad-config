@@ -6,7 +6,17 @@ dofile(vim.g.base46_cache .. "cmp")
 local cmp_ui = require("core.utils").load_config().ui.cmp
 local cmp_style = cmp_ui.style
 
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "[%a.]" ~= nil
+end
+
 local M = {}
+
+M.enabled = function()
+  return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+end
 
 M.formatting = {
   format = function(_, item)
@@ -26,12 +36,6 @@ M.formatting = {
   end,
 }
 
-local has_words_before = function()
-  unpack = unpack or table.unpack
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "[%a.]" ~= nil
-end
-
 M.mapping = {
   ["<CR>"] = cmp.mapping {
     i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true },
@@ -50,6 +54,7 @@ M.mapping = {
       fallback()
     end
   end, { "i", "s" }),
+
   ["<Up>"] = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_prev_item()

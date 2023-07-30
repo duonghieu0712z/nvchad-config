@@ -114,7 +114,6 @@ local plugins = {
     event = "CmdlineEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp-document-symbol",
-      "hrsh7th/cmp-nvim-lsp-signature-help",
     },
     config = function()
       require "custom.configs.cmp-cmdline"
