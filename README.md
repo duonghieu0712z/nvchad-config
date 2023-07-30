@@ -31,7 +31,7 @@ No effort is required to maintain backward compatibility.
 
 <!-- markdownlint-disable html -->
 <details>
-<summary>Click to expand</summary>
+  <summary>Click to expand</summary>
 
 ![nv-dash](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/7674dfec-9ce4-4923-a699-2c6d04d4079f)
 ![cheatsheet](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/5056b52c-5228-4ef4-a6db-17d638599be2)
@@ -74,7 +74,7 @@ No effort is required to maintain backward compatibility.
 - Trouble with [Trouble](https://github.com/folke/trouble.nvim)
 - Notification with [noice](https://github.com/folke/noice.nvim) and [notify](https://github.com/rcarriga/nvim-notify)
 - Easy motion with [hop](https://github.com/phaazon/hop.nvim)
-- Smooth scroll with [cinnamon.nvim](https://github.com/declancm/cinnamon.nvim)
+- Smooth scroll with [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)
 - Guess indent with [indent-o-matic](https://github.com/Darazaki/indent-o-matic)
 - Markdown preview with [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 - AI chat with [Chat GPT](https://github.com/jackMort/ChatGPT.nvim)
@@ -91,7 +91,7 @@ No effort is required to maintain backward compatibility.
   - [`git`](https://git-scm.com/downloads)
   - `make`
   - `curl`, `wget`
-  - `unzip`, `gzip`, `tar`, `7zip`,...
+  - File compression: `unzip`, `gzip`, `tar`, `7zip`,... (optional)
   - [`lua`](https://www.lua.org/download.html)
   - [`nodejs`](https://nodejs.org/en/download/), `npm` and `yarn`
   - [`python3`](https://www.python.org/downloads/) and `pip3`

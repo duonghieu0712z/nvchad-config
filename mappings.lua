@@ -6,10 +6,6 @@ local opts = {
   nowait = true,
 }
 
-local change_scale_factor = function(delta)
-  vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
-end
-
 -- Disabled default keymaps
 M.disabled = {}
 
@@ -23,6 +19,7 @@ M.custom = {
         require("base46").toggle_transparency()
       end,
       "Toggle transparency",
+      opts,
     },
   },
 
@@ -34,15 +31,15 @@ M.custom = {
 
 M.nvterm = {
   t = {
-    ["<ESC>"] = { "<C-\\><C-n>", "Escape insert terminal mode" },
-    ["jk"] = { "<C-\\><C-n>", "Escape insert terminal mode" },
+    ["<ESC>"] = { "<C-\\><C-n>", "Escape insert terminal mode", opts },
+    ["jk"] = { "<C-\\><C-n>", "Escape insert terminal mode", opts },
 
-    ["<C-h>"] = { "<C-\\><C-n><C-w>h", "Window left" },
-    ["<C-l>"] = { "<C-\\><C-n><C-w>l", "Window right" },
-    ["<C-j>"] = { "<C-\\><C-n><C-w>j", "Window down" },
-    ["<C-k>"] = { "<C-\\><C-n><C-w>k", "Window up" },
+    ["<C-h>"] = { "<C-\\><C-n><C-w>h", "Window left", opts },
+    ["<C-l>"] = { "<C-\\><C-n><C-w>l", "Window right", opts },
+    ["<C-j>"] = { "<C-\\><C-n><C-w>j", "Window down", opts },
+    ["<C-k>"] = { "<C-\\><C-n><C-w>k", "Window up", opts },
 
-    ["<C-q>"] = { "<C-\\><C-n><C-w>q", "Close terminal" },
+    ["<C-q>"] = { "<C-\\><C-n><C-w>q", "Close terminal", opts },
   },
 
   n = {
@@ -51,40 +48,7 @@ M.nvterm = {
         require("nvterm.terminal").new "float"
       end,
       "New floating term",
-    },
-  },
-}
-
-M.neovide = {
-  plugin = true,
-
-  [""] = {
-    ["<A-0>"] = {
-      function()
-        vim.g.neovide_scale_factor = 1
-      end,
-      "Reset font size",
-    },
-    ["<A-=>"] = {
-      function()
-        change_scale_factor(1.25)
-      end,
-      "Increase font size",
-    },
-    ["<A-->"] = {
-      function()
-        change_scale_factor(0.8)
-      end,
-      "Decrease font size",
-    },
-  },
-
-  n = {
-    ["<leader>tn"] = {
-      function()
-        vim.g.neovide_transparency = vim.g.neovide_transparency == 1 and 0.92 or 1
-      end,
-      "Toggle Neovide transparency",
+      opts,
     },
   },
 }
@@ -98,60 +62,36 @@ M.dap = {
         require("dap").continue()
       end,
       "Continue",
+      opts,
     },
     ["<F9>"] = {
       function()
         require("dap").toggle_breakpoint()
       end,
       "Toggle breakpoint",
+      opts,
     },
     ["<F10>"] = {
       function()
         require("dap").step_over()
       end,
       "Step over",
+      opts,
     },
     ["<F11>"] = {
       function()
         require("dap").step_into()
       end,
       "Step into",
+      opts,
     },
     ["<F12>"] = {
       function()
         require("dap").step_out()
       end,
       "Step out",
+      opts,
     },
-    -- ["<leader>lp"] = {
-    --   function()
-    --     require("dap").set_breakpoint(nil, nil, vim.fn.input "Log point message: ")
-    --   end,
-    -- },
-    -- ["<leader>dr"] = {
-    --   function()
-    --     require("dap").repl.open()
-    --   end,
-    -- },
-    -- ["<leader>dl"] = {
-    --   function()
-    --     require("dap").run_last()
-    --   end,
-    -- },
-    -- vim.keymap.set({'n', 'v'}, '<leader>dh', function()
-    --   require('dap.ui.widgets').hover()
-    -- end)
-    -- vim.keymap.set({'n', 'v'}, '<leader>dp', function()
-    --   require('dap.ui.widgets').preview()
-    -- end)
-    -- vim.keymap.set('n', '<leader>df', function()
-    --   local widgets = require('dap.ui.widgets')
-    --   widgets.centered_float(widgets.frames)
-    -- end)
-    -- vim.keymap.set('n', '<leader>ds', function()
-    --   local widgets = require('dap.ui.widgets')
-    --   widgets.centered_float(widgets.scopes)
-    -- end)
   },
 }
 
@@ -159,14 +99,46 @@ M.trouble = {
   plugin = true,
 
   n = {
-    ["<leader>mx"] = { "<cmd>TroubleToggle<cr>", " Toggle trouble" },
-    ["<leader>mw"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", " Toggle trouble workspace diagnostics" },
-    ["<leader>md"] = { "<cmd>TroubleToggle document_diagnostics<cr>", " Toggle trouble document diagnostics" },
-    ["<leader>mq"] = { "<cmd>TroubleToggle quickfix<cr>", " Toggle trouble quickfix" },
-    ["<leader>ml"] = { "<cmd>TroubleToggle loclist<cr>", " Toggle trouble loclist" },
-    ["<leader>mD"] = { "<cmd>TroubleToggle lsp_definitions<cr>", " Toggle trouble LSP definitions" },
-    ["<leader>mT"] = { "<cmd>TroubleToggle lsp_type_definitions<cr>", " Toggle trouble LSP type definitions" },
-    ["gR"] = { "<cmd>TroubleToggle lsp_references<cr>", " Toggle trouble LSP references" },
+    ["<leader>mx"] = {
+      "<cmd>TroubleToggle<cr>",
+      " Toggle trouble",
+      opts,
+    },
+    ["<leader>mw"] = {
+      "<cmd>TroubleToggle workspace_diagnostics<cr>",
+      " Toggle trouble workspace diagnostics",
+      opts,
+    },
+    ["<leader>md"] = {
+      "<cmd>TroubleToggle document_diagnostics<cr>",
+      " Toggle trouble document diagnostics",
+      opts,
+    },
+    ["<leader>mq"] = {
+      "<cmd>TroubleToggle quickfix<cr>",
+      " Toggle trouble quickfix",
+      opts,
+    },
+    ["<leader>ml"] = {
+      "<cmd>TroubleToggle loclist<cr>",
+      " Toggle trouble loclist",
+      opts,
+    },
+    ["<leader>mD"] = {
+      "<cmd>TroubleToggle lsp_definitions<cr>",
+      " Toggle trouble LSP definitions",
+      opts,
+    },
+    ["<leader>mT"] = {
+      "<cmd>TroubleToggle lsp_type_definitions<cr>",
+      " Toggle trouble LSP type definitions",
+      opts,
+    },
+    ["gR"] = {
+      "<cmd>TroubleToggle lsp_references<cr>",
+      " Toggle trouble LSP references",
+      opts,
+    },
   },
 }
 
@@ -174,11 +146,11 @@ M.chatgpt = {
   plugin = true,
 
   [""] = {
-    ["<leader>cg"] = { "<cmd>ChatGPT<cr>", "Chat GPT" },
-    ["<leader>ca"] = { "<cmd>ChatGPTActAs<cr>", "Chat GPT Act As" },
-    ["<leader>ce"] = { "<cmd>ChatGPTEditWithInstructions<cr>", "Chat GPT Edit With Instructions" },
-    -- ["<leader>cd"] = { "<cmd>ChatGPTCompleteCode<cr>", "Chat GPT Complete Code" },
-    ["<leader>cr"] = { "<cmd>ChatGPTRun<cr>", "Chat GPT Run" },
+    ["<leader>cg"] = { "<cmd>ChatGPT<cr>", "Chat GPT", opts },
+    ["<leader>ca"] = { "<cmd>ChatGPTActAs<cr>", "Chat GPT Act As", opts },
+    ["<leader>ce"] = { "<cmd>ChatGPTEditWithInstructions<cr>", "Chat GPT Edit With Instructions", opts },
+    -- ["<leader>cd"] = { "<cmd>ChatGPTCompleteCode<cr>", "Chat GPT Complete Code", opts },
+    ["<leader>cr"] = { "<cmd>ChatGPTRun<cr>", "Chat GPT Run", opts },
   },
 }
 
@@ -191,30 +163,35 @@ M.codeium = {
         return vim.fn["codeium#Accept"]()
       end,
       "Codeium accept",
+      opts,
     },
     ["<C-\\>"] = {
       function()
         return vim.fn["codeium#Accept"]()
       end,
       "Codeium accept",
+      opts,
     },
     ["<C-Down>"] = {
       function()
         return vim.fn["codeium#CycleCompletions"](1)
       end,
       "Codeium next cycle completions",
+      opts,
     },
     ["<C-Up>"] = {
       function()
         return vim.fn["codeium#CycleCompletions"](-1)
       end,
       "Codeium previous cycle completions",
+      opts,
     },
     ["<C-x>"] = {
       function()
         return vim.fn["codeium#Clear"]()
       end,
       "Codeium clear",
+      opts,
     },
   },
 }

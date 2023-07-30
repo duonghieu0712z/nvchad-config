@@ -28,13 +28,15 @@ local plugins = {
   {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+    },
     opts = require "custom.configs.cmp",
   },
 
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter",
       "nvim-telescope/telescope-dap.nvim",
       "DuongHieu0712z/telescope-ui-select.nvim",
       "gbrlsnchs/telescope-lsp-handlers.nvim",
@@ -215,9 +217,9 @@ local plugins = {
 
   -- Smooth scroll
   {
-    "declancm/cinnamon.nvim",
+    "karb94/neoscroll.nvim",
     event = "BufEnter",
-    opts = require "custom.configs.cinnamon",
+    opts = require "custom.configs.neoscroll",
   },
 
   -- Guess indent
@@ -254,7 +256,7 @@ local plugins = {
   -- AI code generate
   {
     "Exafunction/codeium.vim",
-    event = "BufRead",
+    event = "InsertEnter",
     cmd = "Codeium",
     init = function()
       require "custom.configs.codeium"
