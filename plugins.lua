@@ -38,7 +38,6 @@ local plugins = {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-telescope/telescope-dap.nvim",
-      "DuongHieu0712z/telescope-ui-select.nvim",
       "gbrlsnchs/telescope-lsp-handlers.nvim",
     },
     opts = require "custom.configs.telescope",
@@ -179,6 +178,13 @@ local plugins = {
       },
     },
     opts = require "custom.configs.barbecue",
+  },
+
+  -- UI
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    opts = require "custom.configs.dressing",
   },
 
   -- Trouble
