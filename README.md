@@ -91,7 +91,7 @@ No effort is required to maintain backward compatibility.
   - [`git`](https://git-scm.com/downloads)
   - `make`
   - `curl`, `wget`
-  - File compression: `unzip`, `gzip`, `tar`, `7zip`,... (optional)
+  - File compression: `unzip`, `gzip`, `tar`, `7zip`, ... (optional)
   - [`lua`](https://www.lua.org/download.html)
   - [`nodejs`](https://nodejs.org/en/download/), `npm` and `yarn`
   - [`python3`](https://www.python.org/downloads/) and `pip3`

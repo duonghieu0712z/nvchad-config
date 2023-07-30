@@ -5,7 +5,9 @@ local lspconfig = require "lspconfig"
 local mason_lsp = require "mason-lspconfig"
 
 local on_attach = require("plugins.configs.lspconfig").on_attach
+
 local capabilities = require("plugins.configs.lspconfig").capabilities
+capabilities.offsetEncoding = { "utf-16" }
 
 local setup_server = function(opts)
   local default_opts = {
