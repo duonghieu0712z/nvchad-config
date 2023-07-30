@@ -9,7 +9,7 @@ local M = {
     submit = "<Enter>",
   },
   openai_params = {
-    max_tokens = 10000,
+    max_tokens = 3000,
   },
 }
 
