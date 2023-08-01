@@ -1,3 +1,4 @@
+---@diagnostic disable: different-requires
 local M = {}
 
 local opts = {
@@ -21,6 +22,9 @@ M.custom = {
       "Toggle transparency",
       opts,
     },
+
+    ["<C-q>"] = { "<C-w>q", "Close window", opts },
+    ["<C-o>"] = { "<C-w>o", "Only window", opts },
   },
 
   i = {
@@ -95,48 +99,93 @@ M.dap = {
   },
 }
 
+M.ufo = {
+  plugin = true,
+
+  n = {
+    ["zR"] = {
+      function()
+        require("ufo").openAllFolds()
+      end,
+      "Open all folds",
+      opts,
+    },
+    ["zM"] = {
+      function()
+        require("ufo").closeAllFolds()
+      end,
+      "Close all folds",
+      opts,
+    },
+    ["zr"] = {
+      function()
+        require("ufo").openFoldsExceptKinds()
+      end,
+      "Open folds except kinds",
+      opts,
+    },
+    ["zm"] = {
+      function()
+        require("ufo").closeFoldsExceptKinds()
+      end,
+      "Close folds except kinds",
+      opts,
+    },
+    ["K"] = {
+      function()
+        local winid = require("ufo").peekFoldedLinesUnderCursor()
+        if not winid then
+          vim.lsp.buf.hover()
+        end
+      end,
+      "LSP hover",
+      opts,
+    },
+  },
+}
+
 M.trouble = {
   plugin = true,
 
   n = {
     ["<leader>mx"] = {
       "<cmd>TroubleToggle<cr>",
-      " Toggle trouble",
+      "Toggle trouble",
       opts,
     },
     ["<leader>mw"] = {
       "<cmd>TroubleToggle workspace_diagnostics<cr>",
-      " Toggle trouble workspace diagnostics",
+      "Toggle trouble workspace diagnostics",
       opts,
     },
     ["<leader>md"] = {
       "<cmd>TroubleToggle document_diagnostics<cr>",
-      " Toggle trouble document diagnostics",
+      "Toggle trouble document diagnostics",
       opts,
     },
     ["<leader>mq"] = {
       "<cmd>TroubleToggle quickfix<cr>",
-      " Toggle trouble quickfix",
+      "Toggle trouble quickfix",
       opts,
     },
     ["<leader>ml"] = {
       "<cmd>TroubleToggle loclist<cr>",
-      " Toggle trouble loclist",
+      "Toggle trouble loclist",
       opts,
     },
     ["<leader>mD"] = {
       "<cmd>TroubleToggle lsp_definitions<cr>",
-      " Toggle trouble LSP definitions",
+      "Toggle trouble LSP definitions",
       opts,
     },
     ["<leader>mT"] = {
       "<cmd>TroubleToggle lsp_type_definitions<cr>",
-      " Toggle trouble LSP type definitions",
+      "Toggle trouble LSP type definitions",
       opts,
     },
     ["gR"] = {
       "<cmd>TroubleToggle lsp_references<cr>",
-      " Toggle trouble LSP references",
+      "Toggle trouble LSP references",
       opts,
     },
   },
@@ -147,10 +196,10 @@ M.chatgpt = {
 
   [""] = {
     ["<leader>cg"] = { "<cmd>ChatGPT<cr>", "Chat GPT", opts },
-    ["<leader>ca"] = { "<cmd>ChatGPTActAs<cr>", "Chat GPT Act As", opts },
-    ["<leader>ce"] = { "<cmd>ChatGPTEditWithInstructions<cr>", "Chat GPT Edit With Instructions", opts },
+    -- ["<leader>ca"] = { "<cmd>ChatGPTActAs<cr>", "Chat GPT Act As", opts },
+    -- ["<leader>ce"] = { "<cmd>ChatGPTEditWithInstructions<cr>", "Chat GPT Edit With Instructions", opts },
     -- ["<leader>cd"] = { "<cmd>ChatGPTCompleteCode<cr>", "Chat GPT Complete Code", opts },
-    ["<leader>cr"] = { "<cmd>ChatGPTRun<cr>", "Chat GPT Run", opts },
+    -- ["<leader>cr"] = { "<cmd>ChatGPTRun<cr>", "Chat GPT Run", opts },
   },
 }
 
@@ -176,14 +225,14 @@ M.codeium = {
       function()
         return vim.fn["codeium#CycleCompletions"](1)
       end,
-      "Codeium next cycle completions",
+      "Codeium next completions",
       opts,
     },
     ["<C-Up>"] = {
       function()
         return vim.fn["codeium#CycleCompletions"](-1)
       end,
-      "Codeium previous cycle completions",
+      "Codeium previous completions",
       opts,
     },
     ["<C-x>"] = {

@@ -149,8 +149,13 @@ local plugins = {
 
   -- Folding
   {
-    "anuvyklack/pretty-fold.nvim",
+    "kevinhwang91/nvim-ufo",
     event = "BufEnter",
+    init = function()
+      load_mappings "ufo"
+    end,
+    dependencies = "kevinhwang91/promise-async",
+    opts = require "custom.configs.ufo",
   },
 
   -- Outline

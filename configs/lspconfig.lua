@@ -8,6 +8,10 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 
 local capabilities = require("plugins.configs.lspconfig").capabilities
 capabilities.offsetEncoding = { "utf-16" }
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
 
 local setup_server = function(opts)
   local default_opts = {

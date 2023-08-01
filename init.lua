@@ -19,6 +19,7 @@ do
 
   opt.list = true
   opt.listchars = icons.listchars
+  opt.fillchars = icons.fillchars
 
   opt.wrap = true
   opt.showbreak = "↪↪"
@@ -28,9 +29,13 @@ do
 
   opt.foldmethod = "expr"
   opt.foldexpr = "nvim_treesitter#foldexpr()"
-  opt.foldenable = false
+  opt.foldenable = true
+  opt.foldcolumn = "1"
+  opt.foldlevel = 99
+  opt.foldlevelstart = 99
 
   opt.ignorecase = false
+  opt.smartcase = true
 end
 
 if vim.loop.os_uname().sysname == "Windows_NT" then
