@@ -28,9 +28,9 @@ end
 
 local M = {
   fold_virt_text_handler = handler,
-  -- provider_selector = function(bufnr, filetype, buftype)
-  --   return { "treesitter", "indent" }
-  -- end,
+  provider_selector = function(bufnr, filetype, buftype)
+    return { "lsp", "treesitter", "indent" }
+  end,
 }
 
 return M

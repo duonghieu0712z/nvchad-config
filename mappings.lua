@@ -121,14 +121,14 @@ M.ufo = {
       function()
         require("ufo").openFoldsExceptKinds()
       end,
-      "Open folds except kinds",
+      "Open fold",
       opts,
     },
     ["zm"] = {
       function()
-        require("ufo").closeFoldsExceptKinds()
+        require("ufo").closeFoldsWith()
       end,
-      "Close folds except kinds",
+      "Close fold",
       opts,
     },
     ["K"] = {

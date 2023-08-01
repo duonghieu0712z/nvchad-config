@@ -70,6 +70,7 @@ No effort is required to maintain backward compatibility.
 - Variable highlight with [vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - Surround with [nvim-surround](https://github.com/kylechui/nvim-surround)
 - Folding with [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
+- Status column with [statuscol.nvim](https://github.com/luukvbaal/statuscol.nvim)
 - Symbols outline with [symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 - Winbar code context with [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - Trouble with [Trouble](https://github.com/folke/trouble.nvim)

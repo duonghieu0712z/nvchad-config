@@ -158,6 +158,15 @@ local plugins = {
     opts = require "custom.configs.ufo",
   },
 
+  -- Status column
+  {
+    "luukvbaal/statuscol.nvim",
+    event = "BufEnter",
+    config = function()
+      require "custom.configs.statuscol"
+    end,
+  },
+
   -- Outline
   {
     "simrat39/symbols-outline.nvim",
