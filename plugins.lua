@@ -201,6 +201,13 @@ local plugins = {
     opts = require "custom.configs.dressing",
   },
 
+  -- Diff view
+  {
+    "sindrets/diffview.nvim",
+    event = "BufEnter",
+    opts = require "custom.configs.diffview",
+  },
+
   -- Trouble
   {
     "folke/trouble.nvim",
@@ -245,6 +252,10 @@ local plugins = {
   {
     "Darazaki/indent-o-matic",
     event = "BufEnter",
+    cmd = "IndentOMatic",
+    init = function()
+      vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", command = "IndentOMatic" })
+    end,
     opts = require "custom.configs.indent-o-matic",
   },
 

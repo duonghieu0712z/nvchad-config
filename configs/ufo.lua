@@ -29,7 +29,10 @@ end
 local M = {
   fold_virt_text_handler = handler,
   provider_selector = function(bufnr, filetype, buftype)
-    return { "lsp", "treesitter", "indent" }
+    if buftype == "nofile" then
+      return ""
+    end
+    return { "lsp", "treesitter" }
   end,
 }
 

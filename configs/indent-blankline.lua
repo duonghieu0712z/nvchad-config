@@ -11,6 +11,7 @@ local M = {
   enabled = true,
   use_treesitter = true,
   use_treesitter_scope = true,
+  indent_level = 99,
 
   show_end_of_line = true,
   show_first_indent_level = true,
@@ -40,8 +41,9 @@ local M = {
 
   buftype_exclude = {
     "nofile",
-    "prompt",
     "help",
+    "terminal",
+    "prompt",
   },
 }
 

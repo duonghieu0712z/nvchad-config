@@ -30,8 +30,7 @@ No effort is required to maintain backward compatibility.
 ## Preview
 
 <!-- markdownlint-disable html -->
-<details>
-  <summary>Click to expand</summary>
+<details><summary>Click to expand</summary>
 
 ![nv-dash](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/7674dfec-9ce4-4923-a699-2c6d04d4079f)
 ![cheatsheet](https://github.com/DuongHieu0712z/nvchad-config/assets/60064664/5056b52c-5228-4ef4-a6db-17d638599be2)
@@ -64,6 +63,7 @@ No effort is required to maintain backward compatibility.
 - Linting and formatting with [Null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - LSP servers, DAP servers, linters and formatters management with [mason](https://github.com/williamboman/mason.nvim)
 - UI with [dressing](https://github.com/stevearc/dressing.nvim) and [nui](https://github.com/MunifTanjim/nui.nvim)
+- Diff view with [diffview.nvim](https://github.com/sindrets/diffview.nvim)
 - Indent guide with [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - Comment with [Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - Key mapping with [which-key](https://github.com/folke/which-key.nvim)

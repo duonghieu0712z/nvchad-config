@@ -24,6 +24,7 @@ local M = {
     "dapui_watches",
     "dapui_repl",
     "dapui_console",
+    "DiffviewFiles",
   },
 }
 
