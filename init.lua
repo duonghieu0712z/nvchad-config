@@ -48,6 +48,22 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
   opt.shellxquote = ""
 end
 
+-- Disable some options in nofile
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.buftype == "nofile" then
+      local opt_local = vim.opt_local
+      opt_local.number = false
+      opt_local.relativenumber = false
+      opt_local.numberwidth = 1
+      opt_local.signcolumn = "no"
+      opt_local.colorcolumn = ""
+      opt_local.foldcolumn = "0"
+    end
+  end,
+})
+
 local sign_define = vim.fn.sign_define
 
 local dap_signs = icons.dap
