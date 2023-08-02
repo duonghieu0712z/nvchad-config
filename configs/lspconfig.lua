@@ -7,8 +7,8 @@ local mason_lsp = require "mason-lspconfig"
 local on_attach = require("plugins.configs.lspconfig").on_attach
 
 local capabilities = require("plugins.configs.lspconfig").capabilities
-capabilities.offsetEncoding = { "utf-16" }
-capabilities.textDocument.foldingRange = {
+capabilities.offsetEncoding = { "utf-16" } -- C/C++ configs
+capabilities.textDocument.foldingRange = { -- Folding configs
   dynamicRegistration = false,
   lineFoldingOnly = true,
 }
