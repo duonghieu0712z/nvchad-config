@@ -49,10 +49,10 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
 end
 
 -- Disable some options in nofile
-vim.api.nvim_create_autocmd("BufEnter", {
+vim.api.nvim_create_autocmd("User", {
   pattern = "*",
   callback = function()
-    if vim.bo.buftype == "nofile" then
+    if vim.bo.buftype ~= "" then
       local opt_local = vim.opt_local
       opt_local.number = false
       opt_local.relativenumber = false

@@ -6,7 +6,17 @@ local plugins = {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufEnter",
+    cmd = "IndentBlanklineRefresh",
+    init = function()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "*",
+        callback = function()
+          if vim.bo.buftype ~= "help" then
+            vim.cmd [[IndentBlanklineRefresh!]]
+          end
+        end,
+      })
+    end,
     opts = require "custom.configs.indent-blankline",
   },
 
@@ -251,10 +261,9 @@ local plugins = {
   -- Guess indent
   {
     "Darazaki/indent-o-matic",
-    event = "BufEnter",
     cmd = "IndentOMatic",
     init = function()
-      vim.api.nvim_create_autocmd("BufEnter", { pattern = "*", command = "IndentOMatic" })
+      vim.api.nvim_create_autocmd("User", { pattern = "*", command = "IndentOMatic" })
     end,
     opts = require "custom.configs.indent-o-matic",
   },

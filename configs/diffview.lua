@@ -1,6 +1,6 @@
 local M = {
   diff_binaries = false,
-  enhanced_diff_hl = false,
+  enhanced_diff_hl = true,
   use_icons = true,
   show_help_hints = true,
   watch_index = true,
@@ -16,8 +16,14 @@ local M = {
   },
 
   view = {
+    default = {
+      winbar_info = true,
+    },
     merge_tool = {
       layout = "diff3_mixed",
+    },
+    file_history = {
+      winbar_info = true,
     },
   },
 

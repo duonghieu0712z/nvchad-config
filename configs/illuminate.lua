@@ -25,6 +25,7 @@ local M = {
     "dapui_repl",
     "dapui_console",
     "DiffviewFiles",
+    "DiffviewFileHistory",
   },
 }
 

@@ -7,6 +7,8 @@ M.ui = {
   hl_override = highlights.override,
 
   theme = "gatekeeper",
+  transparency = false,
+  lsp_semantic_tokens = true,
 
   telescope = {
     style = "bordered",
