@@ -251,49 +251,6 @@ M.hop = {
       "Hop line",
       opts,
     },
-
-    -- f = {
-    --   function()
-    --     require("hop").hint_char1 {
-    --       direction = require("hop.hint").HintDirection.AFTER_CURSOR,
-    --       current_line_only = true,
-    --     }
-    --   end,
-    --   "",
-    --   opts,
-    -- },
-    -- F = {
-    --   function()
-    --     require("hop").hint_char1 {
-    --       direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
-    --       current_line_only = true,
-    --     }
-    --   end,
-    --   "",
-    --   opts,
-    -- },
-    -- t = {
-    --   function()
-    --     require("hop").hint_char1 {
-    --       direction = require("hop.hint").HintDirection.AFTER_CURSOR,
-    --       current_line_only = true,
-    --       hint_offset = -1,
-    --     }
-    --   end,
-    --   "",
-    --   opts,
-    -- },
-    -- T = {
-    --   function()
-    --     require("hop").hint_char1 {
-    --       direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
-    --       current_line_only = true,
-    --       hint_offset = 1,
-    --     }
-    --   end,
-    --   "",
-    --   opts,
-    -- },
   },
 }
 
@@ -302,10 +259,6 @@ M.chatgpt = {
 
   [""] = {
     ["<leader>cg"] = { "<cmd>ChatGPT<cr>", "Chat GPT", opts },
-    -- ["<leader>ca"] = { "<cmd>ChatGPTActAs<cr>", "Chat GPT Act As", opts },
-    -- ["<leader>ce"] = { "<cmd>ChatGPTEditWithInstructions<cr>", "Chat GPT Edit With Instructions", opts },
-    -- ["<leader>cd"] = { "<cmd>ChatGPTCompleteCode<cr>", "Chat GPT Complete Code", opts },
-    -- ["<leader>cr"] = { "<cmd>ChatGPTRun<cr>", "Chat GPT Run", opts },
   },
 }
 
