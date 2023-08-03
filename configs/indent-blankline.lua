@@ -29,7 +29,8 @@ local M = {
   context_char_blankline = " ",
 
   char_highlight_list = highlight_list,
-  space_char_highlight_list = highlight_list,
+  -- space_char_highlight_list = highlight_list,
+  space_char_highlight_list = {},
   space_char_blankline_highlight_list = {},
   context_highlight_list = {},
 

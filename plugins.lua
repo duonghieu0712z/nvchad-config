@@ -181,6 +181,9 @@ local plugins = {
   {
     "simrat39/symbols-outline.nvim",
     event = "BufEnter",
+    init = function()
+      load_mappings "symbolsoutline"
+    end,
     opts = require "custom.configs.symbols-outline",
   },
 
@@ -215,6 +218,9 @@ local plugins = {
   {
     "sindrets/diffview.nvim",
     event = "BufEnter",
+    init = function()
+      load_mappings "diffview"
+    end,
     opts = require "custom.configs.diffview",
   },
 
@@ -248,6 +254,9 @@ local plugins = {
     "phaazon/hop.nvim",
     branch = "v2",
     event = "BufEnter",
+    init = function()
+      load_mappings "hop"
+    end,
     opts = require "custom.configs.hop",
   },
 
@@ -264,6 +273,7 @@ local plugins = {
     cmd = "IndentOMatic",
     init = function()
       vim.api.nvim_create_autocmd("User", { pattern = "*", command = "IndentOMatic" })
+      load_mappings "indent"
     end,
     opts = require "custom.configs.indent-o-matic",
   },

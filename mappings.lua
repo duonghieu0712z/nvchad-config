@@ -144,6 +144,28 @@ M.ufo = {
   },
 }
 
+M.diffview = {
+  plugin = true,
+
+  n = {
+    ["<leader>do"] = {
+      "<cmd>DiffviewOpen<cr>",
+      "Diffview open",
+      opts,
+    },
+    ["<leader>dc"] = {
+      "<cmd>DiffviewClose<cr>",
+      "Diffview close",
+      opts,
+    },
+    ["<leader>dh"] = {
+      "<cmd>DiffviewFileHistory<cr>",
+      "Diffview file history",
+      opts,
+    },
+  },
+}
+
 M.trouble = {
   plugin = true,
 
@@ -188,6 +210,90 @@ M.trouble = {
       "Toggle trouble LSP references",
       opts,
     },
+  },
+}
+
+M.indent = {
+  plugin = true,
+
+  n = {
+    ["<leader>gi"] = {
+      "<cmd>IndentOMatic<cr>",
+      "Guess indent",
+      opts,
+    },
+  },
+}
+
+M.symbolsoutline = {
+  plugin = true,
+
+  n = {
+    ["<leader>gs"] = {
+      "<cmd>SymbolsOutline<cr>",
+      "Toggle symbols outline",
+      opts,
+    },
+  },
+}
+
+M.hop = {
+  plugin = true,
+
+  n = {
+    ["<leader>gw"] = {
+      "<cmd>HopWord<cr>",
+      "Hop word",
+      opts,
+    },
+    ["<leader>gl"] = {
+      "<cmd>HopLine<cr>",
+      "Hop line",
+      opts,
+    },
+
+    -- f = {
+    --   function()
+    --     require("hop").hint_char1 {
+    --       direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+    --       current_line_only = true,
+    --     }
+    --   end,
+    --   "",
+    --   opts,
+    -- },
+    -- F = {
+    --   function()
+    --     require("hop").hint_char1 {
+    --       direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+    --       current_line_only = true,
+    --     }
+    --   end,
+    --   "",
+    --   opts,
+    -- },
+    -- t = {
+    --   function()
+    --     require("hop").hint_char1 {
+    --       direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+    --       current_line_only = true,
+    --       hint_offset = -1,
+    --     }
+    --   end,
+    --   "",
+    --   opts,
+    -- },
+    -- T = {
+    --   function()
+    --     require("hop").hint_char1 {
+    --       direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+    --       current_line_only = true,
+    --       hint_offset = 1,
+    --     }
+    --   end,
+    --   "",
+    --   opts,
+    -- },
   },
 }
 
