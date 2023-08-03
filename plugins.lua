@@ -11,7 +11,7 @@ local plugins = {
       vim.api.nvim_create_autocmd("User", {
         pattern = "*",
         callback = function()
-          if vim.bo.buftype ~= "help" then
+          if vim.bo.buftype ~= "help" and vim.bo.buftype ~= "quickfix" then
             vim.cmd [[IndentBlanklineRefresh!]]
           end
         end,
