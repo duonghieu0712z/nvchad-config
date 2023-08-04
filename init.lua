@@ -52,7 +52,7 @@ end
 vim.api.nvim_create_autocmd("User", {
   pattern = "*",
   callback = function()
-    if vim.bo.buftype ~= "" then
+    if vim.bo.buftype ~= "" and vim.bo.buftype ~= "nowrite" then
       local opt_local = vim.opt_local
       opt_local.number = false
       opt_local.relativenumber = false

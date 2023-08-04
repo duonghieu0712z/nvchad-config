@@ -1,6 +1,6 @@
 local M = {
   diff_binaries = false,
-  enhanced_diff_hl = true,
+  enhanced_diff_hl = false,
   use_icons = true,
   show_help_hints = true,
   watch_index = true,
