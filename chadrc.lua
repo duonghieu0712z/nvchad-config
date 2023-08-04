@@ -6,7 +6,7 @@ M.ui = {
   hl_add = highlights.add,
   hl_override = highlights.override,
 
-  theme = "gatekeeper",
+  theme = "onedark",
   transparency = false,
   lsp_semantic_tokens = true,
 

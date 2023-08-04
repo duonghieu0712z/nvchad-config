@@ -32,7 +32,6 @@ local M = {
     if buftype == "nofile" then
       return ""
     end
-    return { "lsp", "treesitter" }
   end,
 }
 

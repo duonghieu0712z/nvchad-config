@@ -2,14 +2,11 @@ local diag_icons = require("custom.icons").diagnostics
 
 local M = {
   render = "default",
-  stages = "fade_in_slide_out",
+  stages = "static",
 
-  on_open = nil,
-  on_close = nil,
-
-  timeout = 175,
-  background_colour = "#000000",
-  minimum_width = 10,
+  timeout = 1000,
+  fps = 30,
+  top_down = true,
 
   icons = {
     ERROR = diag_icons.error,

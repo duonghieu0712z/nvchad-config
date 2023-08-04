@@ -29,7 +29,6 @@ null_ls.setup {
   sources = {
     -- Code actions
     code_actions.gitsigns,
-    -- code_actions.gomodifytags,
     -- code_actions.impl,
     code_actions.refactoring,
 
@@ -42,8 +41,8 @@ null_ls.setup {
     diagnostics.trail_space,
 
     -- Formatting
-    formatting.trim_newlines,
-    formatting.trim_whitespace,
+    formatting.trim_newlines, -- required `awk`
+    formatting.trim_whitespace, -- required `awk`
 
     -- Hover
     hover.dictionary,
