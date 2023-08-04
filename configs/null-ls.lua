@@ -12,33 +12,41 @@ local hover = null_ls.builtins.hover
 mason_null_ls.setup {
   ensure_installed = {},
   automatic_installation = true,
-  handlers = {},
-}
+  handlers = {
+    function(source_name, methods)
+      mason_null_ls.default_setup(source_name, methods)
+    end,
 
-local sources = {
-  -- Code actions
-  code_actions.gitsigns,
-  -- code_actions.gomodifytags,
-  -- code_actions.impl,
-  code_actions.refactoring,
-
-  -- Completion
-  completion.luasnip,
-  completion.tags,
-
-  -- Diagnostics
-  diagnostics.todo_comments,
-  diagnostics.trail_space,
-
-  -- Formatting
-  formatting.trim_newlines,
-  formatting.trim_whitespace,
-
-  -- Hover
-  hover.dictionary,
-  hover.printenv,
+    golangci_lint = function(source_name, methods)
+      null_ls.register(diagnostics[source_name].with {
+        extra_args = { "--allow-parallel-runners" },
+      })
+    end,
+  },
 }
 
 null_ls.setup {
-  sources,
+  sources = {
+    -- Code actions
+    code_actions.gitsigns,
+    -- code_actions.gomodifytags,
+    -- code_actions.impl,
+    code_actions.refactoring,
+
+    -- Completion
+    completion.luasnip,
+    completion.tags,
+
+    -- Diagnostics
+    diagnostics.todo_comments,
+    diagnostics.trail_space,
+
+    -- Formatting
+    formatting.trim_newlines,
+    formatting.trim_whitespace,
+
+    -- Hover
+    hover.dictionary,
+    hover.printenv,
+  },
 }
