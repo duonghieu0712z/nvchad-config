@@ -10,7 +10,7 @@ M.add = {
 
   DapBreakPoint = { fg = "#ff0000" },
 
-  IlluminatedWordText = { bg = "#2a2a2a", underline = true },
+  IlluminatedWordText = { bg = "#2a2a2a", underline = true, standout = true },
   IlluminatedWordRead = { link = "IlluminatedWordText" },
   IlluminatedWordWrite = { link = "IlluminatedWordText" },
 }

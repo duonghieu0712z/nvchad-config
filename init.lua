@@ -3,6 +3,9 @@ local icons = require "custom.icons"
 local opt = vim.opt
 
 do
+  opt.guicursor:append "a:blinkwait700-blinkoff500-blinkon700"
+  opt.guifont = "FiraCode Nerd Font:h11"
+
   opt.number = true
   opt.relativenumber = true
   opt.signcolumn = "yes"
