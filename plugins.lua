@@ -8,7 +8,7 @@ local plugins = {
     "lukas-reineke/indent-blankline.nvim",
     cmd = "IndentBlanklineRefresh",
     init = function()
-      vim.api.nvim_create_autocmd("User", {
+      vim.api.nvim_create_autocmd({ "BufEnter", "User" }, {
         pattern = "*",
         callback = function()
           if vim.bo.buftype ~= "help" and vim.bo.buftype ~= "quickfix" then
@@ -272,7 +272,7 @@ local plugins = {
     "Darazaki/indent-o-matic",
     cmd = "IndentOMatic",
     init = function()
-      vim.api.nvim_create_autocmd("User", { pattern = "*", command = "IndentOMatic" })
+      vim.api.nvim_create_autocmd({ "BufEnter", "User" }, { pattern = "*", command = "IndentOMatic" })
       load_mappings "indent"
     end,
     opts = require "custom.configs.indent-o-matic",

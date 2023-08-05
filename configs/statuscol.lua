@@ -10,7 +10,7 @@ require("statuscol").setup {
 
   segments = {
     {
-      sign = { name = { "GitSigns*" }, colwidth = 1, auto = true },
+      sign = { name = { "GitSigns*" }, colwidth = 1 },
       click = "v:lua.ScSa",
     },
     {
