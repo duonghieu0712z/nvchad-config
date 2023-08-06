@@ -5,11 +5,19 @@ local plugins = {
   -- Override plugins
 
   {
+    "NvChad/nvim-colorizer.lua",
+    cmd = "ColorizerReloadAllBuffers",
+    init = function()
+      vim.api.nvim_create_autocmd({ "BufEnter", "User" }, { command = "ColorizerReloadAllBuffers" })
+    end,
+    opts = require "custom.configs.colorizer",
+  },
+
+  {
     "lukas-reineke/indent-blankline.nvim",
     cmd = "IndentBlanklineRefresh",
     init = function()
       vim.api.nvim_create_autocmd({ "BufEnter", "User" }, {
-        pattern = "*",
         callback = function()
           if vim.bo.buftype ~= "help" and vim.bo.buftype ~= "quickfix" then
             vim.cmd [[IndentBlanklineRefresh!]]
@@ -279,7 +287,7 @@ local plugins = {
     "Darazaki/indent-o-matic",
     cmd = "IndentOMatic",
     init = function()
-      vim.api.nvim_create_autocmd({ "BufEnter", "User" }, { pattern = "*", command = "IndentOMatic" })
+      vim.api.nvim_create_autocmd({ "BufEnter", "User" }, { command = "IndentOMatic" })
       load_mappings "indent"
     end,
     opts = require "custom.configs.indent-o-matic",

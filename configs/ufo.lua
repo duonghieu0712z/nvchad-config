@@ -30,7 +30,6 @@ local M = {
   fold_virt_text_handler = handler,
   provider_selector = function(bufnr, filetype, buftype)
     if buftype == "nofile" then
-      vim.opt_local.foldcolumn = "0"
       return ""
     end
   end,

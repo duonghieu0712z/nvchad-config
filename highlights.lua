@@ -1,12 +1,12 @@
 local M = {}
 
 M.add = {
-  IndentBlanklineIndent1 = { fg = "#ff8888" },
-  IndentBlanklineIndent2 = { fg = "#88ffff" },
-  IndentBlanklineIndent3 = { fg = "#88ff88" },
-  IndentBlanklineIndent4 = { fg = "#ff88ff" },
-  IndentBlanklineIndent5 = { fg = "#8888ff" },
-  IndentBlanklineIndent6 = { fg = "#ffff88" },
+  IndentBlanklineIndent1 = { fg = "#ff8888", nocombine = true },
+  IndentBlanklineIndent2 = { fg = "#88ffff", nocombine = true },
+  IndentBlanklineIndent3 = { fg = "#88ff88", nocombine = true },
+  IndentBlanklineIndent4 = { fg = "#ff88ff", nocombine = true },
+  IndentBlanklineIndent5 = { fg = "#8888ff", nocombine = true },
+  IndentBlanklineIndent6 = { fg = "#ffff88", nocombine = true },
 
   DapBreakPoint = { fg = "#ff0000" },
 
@@ -16,14 +16,12 @@ M.add = {
 }
 
 M.override = {
-  IndentBlanklineContextChar = { fg = "#8a2be2" },
-  IndentBlanklineContextSpaceChar = { fg = "#8a2be2" },
+  IndentBlanklineContextChar = { fg = "#8a2be2", nocombine = true },
   IndentBlanklineContextStart = { sp = "#8a2be2", underline = true },
 
   Comment = { italic = true },
 
-  DiffAdd = { link = "diffNewFile" },
-  DiffChange = { fg = "#ffa500" },
+  DiffChange = { link = "PreProc" },
 }
 
 return M

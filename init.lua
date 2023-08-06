@@ -53,7 +53,6 @@ end
 
 -- Disable some options in nofile
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = "*",
   callback = function()
     if vim.bo.buftype ~= "" and vim.bo.buftype ~= "nowrite" then
       local opt_local = vim.opt_local

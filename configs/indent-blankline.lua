@@ -1,11 +1,7 @@
-local highlight_list = {
-  "IndentBlanklineIndent1",
-  "IndentBlanklineIndent2",
-  "IndentBlanklineIndent3",
-  "IndentBlanklineIndent4",
-  "IndentBlanklineIndent5",
-  "IndentBlanklineIndent6",
-}
+local highlight_list = {}
+for i = 1, 6 do
+  table.insert(highlight_list, "IndentBlanklineIndent" .. i)
+end
 
 local M = {
   enabled = true,
@@ -29,23 +25,12 @@ local M = {
   context_char_blankline = " ",
 
   char_highlight_list = highlight_list,
-  -- space_char_highlight_list = highlight_list,
-  space_char_highlight_list = {},
+  space_char_highlight_list = { "IndentBlanklineSpaceCharBlankline" },
   space_char_blankline_highlight_list = {},
   context_highlight_list = {},
 
-  filetype_exclude = {
-    "help",
-    "terminal",
-    "",
-  },
-
-  buftype_exclude = {
-    "nofile",
-    "help",
-    "terminal",
-    "prompt",
-  },
+  filetype_exclude = { "" },
+  buftype_exclude = { "nofile", "help", "quickfix", "terminal", "prompt" },
 }
 
 return M
