@@ -207,6 +207,13 @@ local plugins = {
     opts = require "custom.configs.barbecue",
   },
 
+  {
+    "Bekaboo/dropbar.nvim",
+    enabled = false, -- required neovim v0.10+
+    event = "BufEnter",
+    opts = require "custom.configs.dropbar",
+  },
+
   -- UI
   {
     "stevearc/dressing.nvim",
