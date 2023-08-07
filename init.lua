@@ -56,13 +56,15 @@ end
 -- Disable some options when not file
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   callback = function()
-    if vim.tbl_contains({ "nofile", "help", "quickfix", "terminal", "prompt" }, vim.bo.buftype) then
-      local opt_local = vim.opt_local
-      opt_local.number = false
-      opt_local.relativenumber = false
-      opt_local.numberwidth = 1
-      opt_local.colorcolumn = ""
-    end
+    vim.schedule(function()
+      if vim.tbl_contains({ "nofile", "help", "quickfix", "terminal", "prompt" }, vim.bo.buftype) then
+        local opt_local = vim.opt_local
+        opt_local.number = false
+        opt_local.relativenumber = false
+        opt_local.numberwidth = 1
+        opt_local.colorcolumn = ""
+      end
+    end)
   end,
 })
 
