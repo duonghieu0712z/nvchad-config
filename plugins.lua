@@ -229,6 +229,17 @@ local plugins = {
     opts = require "custom.configs.dressing",
   },
 
+  -- Zen mode
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    dependencies = { "folke/twilight.nvim" },
+    init = function()
+      load_mappings "zen"
+    end,
+    opts = require "custom.configs.zen-mode",
+  },
+
   -- Diff view
   {
     "sindrets/diffview.nvim",

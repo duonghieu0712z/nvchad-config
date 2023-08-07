@@ -12,8 +12,8 @@ M.disabled = {}
 
 M.custom = {
   n = {
-    ["<leader>q"] = { ":qa<CR>", "Quit", opts },
-    ["<leader>s"] = { ":w<CR>", "Save file", opts },
+    ["<leader>q"] = { "<cmd>qa<cr>", "Quit", opts },
+    ["<leader>s"] = { "<cmd>w<cr>", "Save file", opts },
 
     ["<leader>tt"] = {
       function()
@@ -139,6 +139,18 @@ M.ufo = {
         end
       end,
       "LSP hover",
+      opts,
+    },
+  },
+}
+
+M.zen= {
+  plugin = true,
+
+  n = {
+    ["<leader>zz"] = {
+      "<cmd>ZenMode<cr>",
+      "Toggle zen mode",
       opts,
     },
   },

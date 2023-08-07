@@ -63,6 +63,7 @@ No effort is required to maintain backward compatibility.
 - Linting and formatting with [Null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - LSP servers, DAP servers, linters and formatters management with [mason](https://github.com/williamboman/mason.nvim)
 - UI with [dressing](https://github.com/stevearc/dressing.nvim) and [nui](https://github.com/MunifTanjim/nui.nvim)
+- Zen mode with [zen-mode.nvim](https://github.com/folke/zen-mode.nvim)
 - Diff view with [diffview.nvim](https://github.com/sindrets/diffview.nvim)
 - Indent guide with [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - Comment with [Comment.nvim](https://github.com/numToStr/Comment.nvim)

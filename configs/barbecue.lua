@@ -6,7 +6,7 @@ local M = {
 
   show_dirname = true,
   show_basename = true,
-  show_modified = false,
+  show_modified = true,
 
   show_navic = true,
 
