@@ -1,13 +1,6 @@
-local fillchars = {}
-for k, v in pairs(require("custom.icons").fillchars) do
-  table.insert(fillchars, k .. ":" .. v)
-end
-
 local M = {
   window = {
-    options = {
-      fillchars = table.concat(fillchars, ","),
-    },
+    options = {},
   },
 
   plugins = {
@@ -18,6 +11,13 @@ local M = {
     twilight = { enabled = true },
     gitsigns = { enabled = false },
   },
+
+  on_open = function(win)
+    vim.cmd [[Barbecue hide]]
+  end,
+  on_close = function()
+    vim.cmd [[Barbecue show]]
+  end,
 }
 
 return M
