@@ -32,6 +32,8 @@ do
   opt.fillchars = icons.fillchars
 
   opt.wrap = true
+  opt.linebreak = true
+  opt.breakindent = true
   opt.showbreak = "↪↪"
 
   opt.showcmd = false
@@ -54,7 +56,7 @@ end
 -- Disable some options when not file
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   callback = function()
-    if vim.bo.buftype ~= "" and vim.bo.buftype ~= "nowrite" then
+    if vim.tbl_contains({ "nofile", "help", "quickfix", "terminal", "prompt" }, vim.bo.buftype) then
       local opt_local = vim.opt_local
       opt_local.number = false
       opt_local.relativenumber = false

@@ -1,7 +1,6 @@
-local kind_icons = {}
-for k, v in pairs(require("custom.icons").kind_icons) do
-  kind_icons[k] = v .. " "
-end
+local kind_icons = vim.tbl_map(function(value)
+  return value .. " "
+end, require("custom.icons").kind_icons)
 
 local M = {
   window = {

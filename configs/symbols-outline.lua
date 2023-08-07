@@ -1,8 +1,6 @@
-local kind_icons = require("custom.icons").kind_icons
-local symbols = {}
-for k, v in pairs(kind_icons) do
-  symbols[k] = { icon = v }
-end
+local kind_icons = vim.tbl_map(function(value)
+  return { icon = value }
+end, require("custom.icons").kind_icons)
 
 local M = {
   highlight_hovered_item = true,
@@ -14,7 +12,7 @@ local M = {
   auto_preview = false,
   show_symbol_details = true,
   wrap = false,
-  symbols = symbols,
+  symbols = kind_icons,
 }
 
 return M

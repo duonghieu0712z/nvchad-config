@@ -19,7 +19,7 @@ local plugins = {
     init = function()
       vim.api.nvim_create_autocmd({ "BufEnter", "User" }, {
         callback = function()
-          if vim.bo.buftype ~= "help" and vim.bo.buftype ~= "quickfix" then
+          if not vim.tbl_contains({ "nofile", "help", "quickfix", "terminal", "prompt" }, vim.bo.buftype) then
             vim.cmd [[IndentBlanklineRefresh!]]
           end
         end,
