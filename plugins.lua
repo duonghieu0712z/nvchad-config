@@ -159,7 +159,7 @@ local plugins = {
   {
     "kylechui/nvim-surround",
     version = "*",
-    event = "BufEnter",
+    keys = { "y", "d", "c", "<C-g>", "S" },
     config = function()
       require("nvim-surround").setup {}
     end,

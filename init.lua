@@ -8,8 +8,15 @@ do
 
   opt.number = true
   opt.relativenumber = true
-  opt.signcolumn = "yes"
+  opt.signcolumn = "auto:1"
+  opt.foldcolumn = "auto:1"
   opt.colorcolumn = "60,80,120"
+
+  opt.foldmethod = "expr"
+  opt.foldexpr = "nvim_treesitter#foldexpr()"
+  opt.foldenable = true
+  opt.foldlevel = 99
+  opt.foldlevelstart = 99
 
   opt.autoindent = true
   opt.preserveindent = true
@@ -30,13 +37,6 @@ do
   opt.showcmd = false
   opt.cmdheight = 0
 
-  opt.foldmethod = "expr"
-  opt.foldexpr = "nvim_treesitter#foldexpr()"
-  opt.foldenable = true
-  opt.foldcolumn = "1"
-  opt.foldlevel = 99
-  opt.foldlevelstart = 99
-
   opt.ignorecase = false
   opt.smartcase = true
 end
@@ -51,7 +51,7 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
   opt.shellxquote = ""
 end
 
--- Disable some options in nofile
+-- Disable some options when not file
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   callback = function()
     if vim.bo.buftype ~= "" and vim.bo.buftype ~= "nowrite" then
@@ -59,9 +59,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
       opt_local.number = false
       opt_local.relativenumber = false
       opt_local.numberwidth = 1
-      opt_local.signcolumn = "no"
       opt_local.colorcolumn = ""
-      opt_local.foldcolumn = "0"
     end
   end,
 })

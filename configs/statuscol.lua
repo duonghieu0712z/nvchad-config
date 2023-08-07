@@ -15,6 +15,7 @@ require("statuscol").setup {
     },
     {
       text = { builtin.lnumfunc, " " },
+      condition = { true, builtin.no_empty },
       click = "v:lua.ScLa",
     },
     {
@@ -23,6 +24,7 @@ require("statuscol").setup {
     },
     {
       text = { builtin.foldfunc, " " },
+      condition = { true, builtin.no_empty },
       click = "v:lua.ScFa",
     },
   },
