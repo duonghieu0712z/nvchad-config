@@ -34,7 +34,7 @@ do
   opt.wrap = true
   opt.linebreak = true
   opt.breakindent = true
-  opt.showbreak = "↪↪"
+  -- opt.showbreak = "↪↪"
 
   opt.showcmd = false
   opt.cmdheight = 0

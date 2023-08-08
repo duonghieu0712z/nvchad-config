@@ -8,14 +8,20 @@ local git = function()
   end
 
   local git_status = vim.b.gitsigns_status_dict
+  local added, changed, removed = git_status.added, git_status.changed, git_status.removed
 
-  local added = (git_status.added and git_status.added ~= 0) and (git_icons.added .. " " .. git_status.added) or ""
-  local changed = (git_status.changed and git_status.changed ~= 0) and (git_icons.changed .. " " .. git_status.changed) or ""
-  local removed = (git_status.removed and git_status.removed ~= 0) and (git_icons.removed .. " " .. git_status.removed) or ""
-  local branch_name = git_icons.branch .. " " .. git_status.head
+  local git_list = { "%#St_gitIcons#" .. git_icons.branch .. " " .. git_status.head }
+  if added > 0 then
+    table.insert(git_list, "%#DiffAdded#" .. git_icons.added .. " " .. added)
+  end
+  if changed > 0 then
+    table.insert(git_list, "%#DiffChange#" .. git_icons.changed .. " " .. changed)
+  end
+  if removed > 0 then
+    table.insert(git_list, "%#DiffDelete#" .. git_icons.removed .. " " .. removed)
+  end
 
-  local git_list = { "%#St_gitIcons#", branch_name, added, changed, removed }
-  return table.concat(git_list, " ")
+  return " " .. table.concat(git_list, " ")
 end
 
 local lsp_diagnostics = function()
@@ -23,18 +29,30 @@ local lsp_diagnostics = function()
     return ""
   end
 
-  local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-  local warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-  local hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
-  local info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+  local get_diagnostic = function(severity)
+    return #vim.diagnostic.get(0, { severity = severity })
+  end
 
-  local err_str = (errors and errors > 0) and ("%#St_lspError#" .. diag_icons.error .. " " .. errors) or ""
-  local warn_str = (warnings and warnings > 0) and ("%#St_lspWarning#" .. diag_icons.warning .. " " .. warnings) or ""
-  local hint_str = (hints and hints > 0) and ("%#St_lspHints#" .. diag_icons.hint .. " " .. hints) or ""
-  local info_str = (info and info > 0) and ("%#St_lspInfo#" .. diag_icons.information .. " " .. info) or ""
+  local errors = get_diagnostic(vim.diagnostic.severity.ERROR)
+  local warns = get_diagnostic(vim.diagnostic.severity.WARN)
+  local hints = get_diagnostic(vim.diagnostic.severity.HINT)
+  local infos = get_diagnostic(vim.diagnostic.severity.INFO)
 
-  local diag_list = { err_str, warn_str, hint_str, info_str }
-  return table.concat(diag_list, " ")
+  local diag_list = {}
+  if errors > 0 then
+    table.insert(diag_list, "%#St_lspError#" .. diag_icons.error .. " " .. errors)
+  end
+  if warns > 0 then
+    table.insert(diag_list, "%#St_lspWarning#" .. diag_icons.warning .. " " .. warns)
+  end
+  if hints > 0 then
+    table.insert(diag_list, "%#St_lspHints#" .. diag_icons.hint .. " " .. hints)
+  end
+  if infos > 0 then
+    table.insert(diag_list, "%#St_lspInfo#" .. diag_icons.information .. " " .. infos)
+  end
+
+  return table.concat(diag_list, " ") .. " "
 end
 
 local M = {
