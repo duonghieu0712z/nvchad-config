@@ -11,14 +11,14 @@ local git = function()
   local added, changed, removed = git_status.added, git_status.changed, git_status.removed
 
   local git_list = { "%#St_gitIcons#" .. git_icons.branch .. " " .. git_status.head }
-  if added > 0 then
-    table.insert(git_list, "%#DiffAdded#" .. git_icons.added .. " " .. added)
+  if added and added > 0 then
+    table.insert(git_list, "%#St_lspInfo#" .. git_icons.added .. " " .. added)
   end
-  if changed > 0 then
-    table.insert(git_list, "%#DiffChange#" .. git_icons.changed .. " " .. changed)
+  if changed and changed > 0 then
+    table.insert(git_list, "%#St_lspWarning#" .. git_icons.changed .. " " .. changed)
   end
-  if removed > 0 then
-    table.insert(git_list, "%#DiffDelete#" .. git_icons.removed .. " " .. removed)
+  if removed and removed > 0 then
+    table.insert(git_list, "%#St_lspError#" .. git_icons.removed .. " " .. removed)
   end
 
   return " " .. table.concat(git_list, " ")
