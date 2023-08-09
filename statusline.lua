@@ -60,9 +60,8 @@ local M = {
   separator_style = "arrow",
   overriden_modules = function(modules)
     modules[3] = git()
+    modules[5] = ""
     modules[7] = lsp_diagnostics()
-
-    table.remove(modules, 5)
   end,
 }
 
