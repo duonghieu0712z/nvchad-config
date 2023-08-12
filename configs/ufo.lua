@@ -32,6 +32,7 @@ local M = {
     if buftype == "nofile" then
       return ""
     end
+    return { "lsp", "indent" }
   end,
 }
 
