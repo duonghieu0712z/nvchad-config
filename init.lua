@@ -10,7 +10,7 @@ do
   opt.relativenumber = true
   opt.signcolumn = "auto:1"
   opt.foldcolumn = "auto:1"
-  opt.colorcolumn = "60,80,120"
+  -- opt.colorcolumn = "60,80,120"
 
   opt.foldmethod = "expr"
   opt.foldexpr = "nvim_treesitter#foldexpr()"

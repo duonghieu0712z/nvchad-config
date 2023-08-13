@@ -10,7 +10,7 @@ local git = function()
   local git_status = vim.b.gitsigns_status_dict
   local added, changed, removed = git_status.added, git_status.changed, git_status.removed
 
-  local git_list = { "%#St_gitIcons#" .. git_icons.branch .. " " .. git_status.head }
+  local git_list = { "%#St_gitIcons#" .. git_icons.branch .. git_status.head }
   if added and added > 0 then
     table.insert(git_list, "%#St_lspInfo#" .. git_icons.added .. " " .. added)
   end
@@ -29,14 +29,15 @@ local lsp_diagnostics = function()
     return ""
   end
 
-  local get_diagnostic = function(severity)
+  local get_num_of_diagnostics = function(severity)
     return #vim.diagnostic.get(0, { severity = severity })
   end
+  local severity = vim.diagnostic.severity
 
-  local errors = get_diagnostic(vim.diagnostic.severity.ERROR)
-  local warns = get_diagnostic(vim.diagnostic.severity.WARN)
-  local hints = get_diagnostic(vim.diagnostic.severity.HINT)
-  local infos = get_diagnostic(vim.diagnostic.severity.INFO)
+  local errors = get_num_of_diagnostics(severity.ERROR)
+  local warns = get_num_of_diagnostics(severity.WARN)
+  local hints = get_num_of_diagnostics(severity.HINT)
+  local infos = get_num_of_diagnostics(severity.INFO)
 
   local diag_list = {}
   if errors > 0 then
