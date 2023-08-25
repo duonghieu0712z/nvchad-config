@@ -3,11 +3,13 @@
 local null_ls = require "null-ls"
 local mason_null_ls = require "mason-null-ls"
 
-local code_actions = null_ls.builtins.code_actions
-local completion = null_ls.builtins.completion
-local diagnostics = null_ls.builtins.diagnostics
-local formatting = null_ls.builtins.formatting
-local hover = null_ls.builtins.hover
+local builtins = null_ls.builtins
+
+local code_actions = builtins.code_actions
+local completion = builtins.completion
+local diagnostics = builtins.diagnostics
+local formatting = builtins.formatting
+local hover = builtins.hover
 
 mason_null_ls.setup {
   ensure_installed = {},
@@ -41,8 +43,8 @@ null_ls.setup {
     diagnostics.trail_space,
 
     -- Formatting
-    formatting.trim_newlines, -- required `awk`
-    formatting.trim_whitespace, -- required `awk`
+    formatting.trim_newlines, -- required `awk` or `gawk`
+    formatting.trim_whitespace, -- required `awk`or `gawk`
 
     -- Hover
     hover.dictionary,
