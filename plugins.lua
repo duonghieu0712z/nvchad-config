@@ -72,6 +72,7 @@ local plugins = {
     dependencies = {
       "williamboman/mason.nvim",
       "b0o/schemastore.nvim",
+      "simrat39/rust-tools.nvim", -- Rust
     },
     config = function()
       require "custom.configs.lspconfig"

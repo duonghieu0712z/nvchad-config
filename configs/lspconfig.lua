@@ -13,14 +13,19 @@ capabilities.textDocument.foldingRange = { -- Folding configs
   lineFoldingOnly = true,
 }
 
-local setup_server = function(opts)
+local setup_server = function(opts, cb)
   local default_opts = {
     on_attach = on_attach,
     capabilities = capabilities,
   }
   opts = vim.tbl_deep_extend("force", default_opts, opts or {})
+
   return function(server_name)
     lspconfig[server_name].setup(opts)
+
+    if type(cb) == "function" then
+      cb(opts)
+    end
   end
 end
 
@@ -66,5 +71,15 @@ mason_lsp.setup {
         },
       },
     },
+
+    ["rust_analyzer"] = setup_server({
+      settings = {
+        ["rust-analyzer"] = {},
+      },
+    }, function(opts)
+      require("rust-tools").setup {
+        server = opts,
+      }
+    end),
   },
 }
