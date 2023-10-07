@@ -15,17 +15,14 @@ local plugins = {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    cmd = "IndentBlanklineRefresh",
-    init = function()
-      vim.api.nvim_create_autocmd({ "BufEnter", "User" }, {
-        callback = function()
-          if not vim.tbl_contains({ "nofile", "help", "quickfix", "terminal", "prompt" }, vim.bo.buftype) then
-            vim.cmd [[IndentBlanklineRefresh!]]
-          end
-        end,
-      })
+    version = "^3",
+    main = "ibl",
+    dependencies = { "HiPhish/rainbow-delimiters.nvim" },
+    config = function()
+      require("core.utils").load_mappings "blankline"
+      dofile(vim.g.base46_cache .. "blankline")
+      require "custom.configs.indent-blankline"
     end,
-    opts = require "custom.configs.indent-blankline",
   },
 
   {

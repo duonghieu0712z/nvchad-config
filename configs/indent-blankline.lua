@@ -1,36 +1,48 @@
-local highlight_list = {}
+local hooks = require "ibl.hooks"
+
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+  local set_hl = vim.api.nvim_set_hl
+  set_hl(0, "IblIndent1", { fg = "#ff8888" })
+  set_hl(0, "IblIndent2", { fg = "#88ffff" })
+  set_hl(0, "IblIndent3", { fg = "#88ff88" })
+  set_hl(0, "IblIndent4", { fg = "#ff88ff" })
+  set_hl(0, "IblIndent5", { fg = "#8888ff" })
+  set_hl(0, "IblIndent6", { fg = "#ffff88" })
+  set_hl(0, "IblScope", { fg = "#8a2be2" })
+end)
+
+hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+
+local highlight = {}
 for i = 1, 6 do
-  table.insert(highlight_list, "IndentBlanklineIndent" .. i)
+  table.insert(highlight, "IblIndent" .. i)
 end
 
-local M = {
+vim.g.rainbow_delimiters = { highlight = highlight }
+
+require("ibl").setup {
   enabled = true,
-  use_treesitter = true,
-  use_treesitter_scope = true,
-  indent_level = 99,
 
-  show_end_of_line = true,
-  show_first_indent_level = true,
-  show_trailing_blankline_indent = true,
-  show_foldtext = true,
+  indent = {
+    char = "▏",
+    highlight = highlight,
+    smart_indent_cap = true,
+  },
 
-  show_current_context = true,
-  show_current_context_start = true,
-  show_current_context_start_on_current_line = true,
+  whitespace = {
+    remove_blankline_trail = true,
+  },
 
-  char = "▏",
-  char_blankline = " ",
-  space_char_blankline = " ",
-  context_char = "▏",
-  context_char_blankline = " ",
+  scope = {
+    enabled = true,
+    char = "▏",
+    show_start = true,
+    show_end = true,
+    injected_languages = true,
+  },
 
-  char_highlight_list = highlight_list,
-  space_char_highlight_list = { "IndentBlanklineSpaceCharBlankline" },
-  space_char_blankline_highlight_list = {},
-  context_highlight_list = {},
-
-  filetype_exclude = { "" },
-  buftype_exclude = { "nofile", "help", "quickfix", "terminal", "prompt" },
+  exclude = {
+    filetypes = { "" },
+    buftypes = { "nofile", "help", "quickfix", "terminal", "prompt" },
+  },
 }
-
-return M
