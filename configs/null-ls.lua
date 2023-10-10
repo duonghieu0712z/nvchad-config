@@ -43,6 +43,7 @@ null_ls.setup {
     diagnostics.trail_space,
 
     -- Formatting
+    formatting.rustfmt,
     formatting.trim_newlines, -- required `awk` or `gawk`
     formatting.trim_whitespace, -- required `awk`or `gawk`
 
