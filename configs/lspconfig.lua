@@ -13,7 +13,10 @@ capabilities.textDocument.foldingRange = { -- Folding configs
   lineFoldingOnly = true,
 }
 
-local setup_server = function(opts, cb)
+---@param opts? any
+---@param callback? fun(opts?: any)
+---@return function
+local setup_server = function(opts, callback)
   local default_opts = {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -23,8 +26,8 @@ local setup_server = function(opts, cb)
   return function(server_name)
     lspconfig[server_name].setup(opts)
 
-    if type(cb) == "function" then
-      cb(opts)
+    if callback ~= nil then
+      callback(opts)
     end
   end
 end
