@@ -157,7 +157,7 @@ local plugins = {
   {
     "kylechui/nvim-surround",
     version = "*",
-    keys = { "y", "d", "c", "i", "v", "<S-v>", "<C-v>" },
+    event = "VeryLazy",
     config = function()
       require("nvim-surround").setup {}
     end,

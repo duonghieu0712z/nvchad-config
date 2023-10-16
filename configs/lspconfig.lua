@@ -25,7 +25,6 @@ local setup_server = function(opts, callback)
 
   return function(server_name)
     lspconfig[server_name].setup(opts)
-
     if callback ~= nil then
       callback(opts)
     end
