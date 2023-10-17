@@ -71,8 +71,9 @@ local plugins = {
     event = "VeryLazy",
     dependencies = {
       "williamboman/mason.nvim",
-      "b0o/schemastore.nvim",
-      "simrat39/rust-tools.nvim", -- Rust
+      "b0o/schemastore.nvim", -- JSON schema store
+      "simrat39/rust-tools.nvim", -- Rust tools
+      { "folke/neodev.nvim", config = true }, -- Nvim lua API
     },
     config = function()
       require "custom.configs.lspconfig"
@@ -158,9 +159,7 @@ local plugins = {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup {}
-    end,
+    config = true,
   },
 
   -- Folding

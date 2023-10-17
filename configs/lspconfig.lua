@@ -15,19 +15,18 @@ capabilities.textDocument.foldingRange = { -- Folding configs
 
 ---@param opts? any
 ---@param callback? fun(opts?: any)
----@return function
+---@return fun(server_name: string)
 local setup_server = function(opts, callback)
   local default_opts = {
     on_attach = on_attach,
     capabilities = capabilities,
   }
   opts = vim.tbl_deep_extend("force", default_opts, opts or {})
+  callback = callback or function() end
 
   return function(server_name)
     lspconfig[server_name].setup(opts)
-    if callback ~= nil then
-      callback(opts)
-    end
+    callback(opts)
   end
 end
 
@@ -57,9 +56,14 @@ mason_lsp.setup {
     ["lua_ls"] = setup_server {
       settings = {
         Lua = {
+          completion = {
+            callSnippet = "Replace",
+          },
+
           diagnostics = {
             globals = { "vim" },
           },
+
           workspace = {
             library = {
               [vim.fn.expand "$VIMRUNTIME/lua"] = true,
