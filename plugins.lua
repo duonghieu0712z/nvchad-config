@@ -71,6 +71,7 @@ local plugins = {
     event = "VeryLazy",
     dependencies = {
       "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig",
       "b0o/schemastore.nvim", -- JSON schema store
       "simrat39/rust-tools.nvim", -- Rust tools
       { "folke/neodev.nvim", config = true }, -- Nvim lua API

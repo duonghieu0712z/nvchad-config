@@ -60,7 +60,7 @@ require("ibl").setup {
     char = "▏",
     show_start = true,
     show_end = true,
-    show_exact_scope = true,
+    show_exact_scope = false,
     injected_languages = true,
   },
 
