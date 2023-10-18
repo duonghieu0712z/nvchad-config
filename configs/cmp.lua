@@ -18,6 +18,13 @@ M.enabled = function()
   return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
 end
 
+M.window = {
+  documentation = {
+    border = "rounded",
+    winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
+  },
+}
+
 M.formatting = {
   format = function(_, item)
     local icons = require("custom.icons").kind_icons

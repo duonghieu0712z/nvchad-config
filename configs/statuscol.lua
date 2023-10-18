@@ -19,7 +19,7 @@ require("statuscol").setup {
       click = "v:lua.ScLa",
     },
     {
-      sign = { name = { "GitSigns*" }, colwidth = 1 },
+      sign = { namespace = { "gitsigns" }, colwidth = 1 },
       click = "v:lua.ScSa",
     },
     {

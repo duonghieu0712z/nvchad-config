@@ -38,6 +38,7 @@ do
 
   opt.showcmd = false
   opt.cmdheight = 0
+  -- opt.pumheight = 20
 
   opt.ignorecase = false
   opt.smartcase = true
