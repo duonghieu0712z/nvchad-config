@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 local icons = require "custom.icons"
 local git_icons = icons.git
 local diag_icons = icons.diagnostics

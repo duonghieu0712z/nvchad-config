@@ -12,7 +12,7 @@ M.disabled = {}
 
 M.custom = {
   n = {
-    ["<leader>q"] = { "<cmd>qa<cr>", "Quit", opts },
+    ["<leader><F4>"] = { "<cmd>qa<cr>", "Quit", opts },
     ["<leader>s"] = { "<cmd>w<cr>", "Save file", opts },
 
     ["<leader>tt"] = {
@@ -29,7 +29,10 @@ M.custom = {
 
   i = {
     ["jk"] = { "<ESC>", "Escape insert mode", opts },
-    ["<C-v>"] = { "<C-r>*", "Paste", opts },
+  },
+
+  [""] = {
+    ["<C-v>"] = { "<C-r>+", "Paste", opts },
   },
 }
 
@@ -144,7 +147,7 @@ M.ufo = {
   },
 }
 
-M.zen= {
+M.zen = {
   plugin = true,
 
   n = {
