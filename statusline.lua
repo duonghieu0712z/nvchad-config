@@ -1,14 +1,18 @@
----@diagnostic disable: undefined-field
 local icons = require "custom.icons"
 local git_icons = icons.git
 local diag_icons = icons.diagnostics
 
+local stbufnr = function()
+  return vim.api.nvim_win_get_buf(vim.g.statusline_winid)
+end
+
 local git = function()
-  if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
+  local bufnr = vim.b[stbufnr()]
+  if not bufnr.gitsigns_head or bufnr.gitsigns_git_status then
     return ""
   end
 
-  local git_status = vim.b.gitsigns_status_dict
+  local git_status = bufnr.gitsigns_status_dict
   local added, changed, removed = git_status.added, git_status.changed, git_status.removed
 
   local git_list = { "%#St_gitIcons#" .. git_icons.branch .. git_status.head }
