@@ -47,6 +47,7 @@ require("ibl").setup {
 
   indent = {
     char = "▏",
+    tab_char = "▏",
     highlight = indent_highlight,
     smart_indent_cap = true,
   },
