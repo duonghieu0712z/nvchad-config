@@ -29,10 +29,8 @@ M.custom = {
 
   i = {
     ["jk"] = { "<ESC>", "Escape insert mode", opts },
-  },
-
-  [""] = {
     ["<C-v>"] = { "<C-r>+", "Paste", opts },
+    -- ["<C-v>"] = { "<C-r>*", "Paste", opts },
   },
 }
 
