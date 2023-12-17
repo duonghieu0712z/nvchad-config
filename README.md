@@ -113,11 +113,13 @@ No effort is required to maintain backward compatibility.
 
 ```bash
 # Linux/macOS
+rm -rf ~/.config/nvim/lua/custom
 git clone https://github.com/DuongHieu0712z/nvchad-config.git ~/.config/nvim/lua/custom
 ```
 
 ```powershell
 # Windows (Powershell)
+rm -r -fo ~\AppData\Local\nvim\lua\custom
 git clone https://github.com/DuongHieu0712z/nvchad-config.git ~\AppData\Local\nvim\lua\custom
 ```
 
