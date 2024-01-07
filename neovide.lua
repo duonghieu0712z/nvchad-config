@@ -1,5 +1,6 @@
 local g = vim.g
 local o = vim.o
+local opt = vim.opt
 
 local transparency = 0.92
 
@@ -57,6 +58,7 @@ local mappings = {
 
 if g.neovide then
   o.guifont = "FiraCode Nerd Font:h11"
+  opt.linespace = 0
 
   g.neovide_transparency = transparency
   g.transparency = transparency
