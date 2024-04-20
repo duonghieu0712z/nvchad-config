@@ -135,7 +135,7 @@ local cursor = function()
   return "%#St_pos_icon# " .. status .. " %p%% "
 end
 
-M.order = { "mode", "git", "%=", "=", "%=", "diagnostics", "lsp", "cursor" }
+M.order = { "mode", "git", "%=", "empty", "%=", "diagnostics", "lsp", "cursor" }
 
 M.modules = {
   mode = mode,
@@ -143,7 +143,7 @@ M.modules = {
   diagnostics = diagnostics,
   lsp = lsp,
   cursor = cursor,
-  ["="] = "%#St_LspMsg#",
+  ["empty"] = "%#St_LspMsg#",
   ["%="] = "%=",
 }
 
