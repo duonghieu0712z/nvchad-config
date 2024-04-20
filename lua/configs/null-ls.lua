@@ -33,25 +33,25 @@ null_ls.setup {
     code_actions.gitrebase,
     code_actions.gitsigns,
     -- code_actions.impl,
-    code_actions.refactoring,
-    code_actions.ts_node_action,
+    -- code_actions.refactoring,
+    -- code_actions.ts_node_action,
 
     -- Completion
-    completion.luasnip,
+    -- completion.luasnip,
     -- completion.spell,
-    completion.tags,
+    -- completion.tags,
 
     -- Diagnostics
     -- diagnostics.commitlint,
     -- diagnostics.dotenv_linter,
     -- diagnostics.gitlint,
-    diagnostics.todo_comments,
-    diagnostics.trail_space,
+    -- diagnostics.todo_comments,
+    -- diagnostics.trail_space,
 
     -- Formatting
 
     -- Hover
-    hover.dictionary,
-    hover.printenv,
+    -- hover.dictionary,
+    -- hover.printenv,
   },
 }
