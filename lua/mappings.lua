@@ -7,7 +7,6 @@ map("n", { "H", "^", "General Move to beginning of line" })
 map("n", { "L", "$", "General Move to end of line" })
 
 map("n", { "<leader>ch", "<cmd>NvCheatsheet<cr>", "General Cheatsheet" })
-map("n", { "<leader>fm", function() end, "General Format file" })
 
 map("n", { "<C-h>", "<C-w>h", "Window Move window left" })
 map("n", { "<C-j>", "<C-w>j", "Window Move window down" })
@@ -43,25 +42,25 @@ map("n", { "<leader>q", vim.diagnostic.setloclist, "LSP Open diagnostics in locl
 -- Tabufline
 map("n", { "<leader>b", "<cmd>enew<cr>", "Buffer New buffer" })
 map("n", {
-  "<tab>",
-  function()
-    require("nvchad.tabufline").next()
-  end,
-  "Buffer Go to next buffer",
+    "<tab>",
+    function()
+        require("nvchad.tabufline").next()
+    end,
+    "Buffer Go to next buffer",
 })
 map("n", {
-  "<s-tab>",
-  function()
-    require("nvchad.tabufline").prev()
-  end,
-  "Buffer Go to previous buffer",
+    "<s-tab>",
+    function()
+        require("nvchad.tabufline").prev()
+    end,
+    "Buffer Go to previous buffer",
 })
 map("n", {
-  "<leader>x",
-  function()
-    require("nvchad.tabufline").close_buffer()
-  end,
-  "Buffer Close current buffer",
+    "<leader>x",
+    function()
+        require("nvchad.tabufline").close_buffer()
+    end,
+    "Buffer Close current buffer",
 })
 
 -- Telescope

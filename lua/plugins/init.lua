@@ -59,6 +59,7 @@ return {
     "phaazon/hop.nvim",
     branch = "v2",
     event = "BufEnter",
+    opts = {},
   },
 
   -- Disable conform.nvim

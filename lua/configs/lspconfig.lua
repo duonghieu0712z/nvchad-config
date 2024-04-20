@@ -1,30 +1,27 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
 
+require "configs.lsp"
+
 local lspconfig = require "lspconfig"
 local mason_lsp = require "mason-lspconfig"
-local nvchad_lsp = require "nvchad.configs.lspconfig"
+local tbl = require "utils.table"
 
-local on_attach = nvchad_lsp.on_attach
-local on_init = nvchad_lsp.on_init
+local utils = require "configs.lsp.utils"
+local on_attach = utils.on_attach
+local on_init = utils.on_init
+local capabilities = utils.capabilities
 
-local capabilities = nvchad_lsp.capabilities
-capabilities.offsetEncoding = { "utf-16" } -- C/C++ configs
-capabilities.textDocument.foldingRange = { -- Folding configs
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
-
+---Setup server
 ---@param opts? any
 ---@return fun(server_name: string)
-local setup_server = function(opts )
+local setup_server = function(opts)
   local default_opts = {
     on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
   }
-  opts = vim.tbl_deep_extend("force", default_opts, opts or {})
-
+  opts = tbl.mergeForce(default_opts, opts or {})
   return function(server_name)
     lspconfig[server_name].setup(opts)
   end
@@ -35,23 +32,6 @@ mason_lsp.setup {
   automatic_installation = true,
   handlers = {
     setup_server(),
-
-    ["jsonls"] = setup_server {
-      settings = {
-        json = {
-          schemas = require("schemastore").json.schemas(),
-          validate = { enable = true },
-        },
-      },
-    },
-
-    ["yamlls"] = setup_server {
-      settings = {
-        yaml = {
-          schemas = require("schemastore").yaml.schemas(),
-        },
-      },
-    },
 
     ["lua_ls"] = setup_server {
       settings = {
@@ -74,6 +54,23 @@ mason_lsp.setup {
             maxPreload = 100000,
             preloadFileSize = 10000,
           },
+        },
+      },
+    },
+
+    ["jsonls"] = setup_server {
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    },
+
+    ["yamlls"] = setup_server {
+      settings = {
+        yaml = {
+          schemas = require("schemastore").yaml.schemas(),
         },
       },
     },
