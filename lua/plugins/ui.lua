@@ -16,6 +16,11 @@ return {
   },
 
   {
+    "nvim-tree/nvim-tree.lua",
+    opts = require "configs.nvimtree",
+  },
+
+  {
     "folke/which-key.nvim",
     keys = { "<leader>", "<C-r>", "<C-w", '"', "'", "`", "c", "v", "g", "z", "d", "y" },
   },

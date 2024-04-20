@@ -12,6 +12,7 @@ M.on_attach = function(client, bufnr)
   mapBufnr("n", { "gd", vim.lsp.buf.definition, "LSP Go to definition" })
   mapBufnr("n", { "gi", vim.lsp.buf.implementation, "LSP Go to implementation" })
   mapBufnr("n", { "gr", vim.lsp.buf.references, "LSP Go to references" })
+  mapBufnr("n", { "<leader>D", vim.lsp.buf.type_definition, "LSP Go to type definition" })
 
   mapBufnr("n", { "K", vim.lsp.buf.hover, "LSP Hover" })
   mapBufnr("n", { "<leader>sh", vim.lsp.buf.signature_help, "LSP Signature help" })
