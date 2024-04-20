@@ -44,6 +44,8 @@ do
 
   opt.ignorecase = false
   opt.smartcase = true
+
+  opt.scrolloff = 8
 end
 
 if vim.loop.os_uname().sysname == "Windows_NT" then

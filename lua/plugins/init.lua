@@ -17,13 +17,6 @@ return {
   },
 
   {
-    "hrsh7th/nvim-cmp",
-    opts = function()
-      return require "configs.cmp"
-    end,
-  },
-
-  {
     "nvim-telescope/telescope.nvim",
     opts = require "configs.telescope",
   },

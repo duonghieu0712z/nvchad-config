@@ -66,7 +66,7 @@ local M = {
   presets = {
     bottom_search = false,
     command_palette = true,
-    long_message_to_split = true,
+    long_message_to_split = false,
     inc_rename = true,
     lsp_doc_border = true,
   },
