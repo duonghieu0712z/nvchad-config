@@ -2,10 +2,10 @@ local map = require("utils.keymap").map
 
 -- General
 map("n", { "<esc>", "<cmd>noh<cr>", "General Clear highlights" })
-map("n", { "j", "gj", "General Move down" })
-map("n", { "k", "gk", "General Move up" })
-map("n", { "J", "^", "General Move to beginning of line" })
-map("n", { "K", "$", "General Move to end of line" })
+
+map("n", { "H", "^", "General Move to beginning of line" })
+map("n", { "L", "$", "General Move to end of line" })
+
 map("n", { "<leader>ch", "<cmd>NvCheatsheet<cr>", "General Cheatsheet" })
 map("n", { "<leader>fm", function() end, "General Format file" })
 
@@ -19,6 +19,11 @@ map("n", { "<C-o>", "<C-w>o", "Window Only window" })
 map("n", { "<C-q>", "<cmd>qa<cr>", "Window Quit" })
 map("n", { "<C-s>", "<cmd>w<cr>", "Window Save file" })
 map("n", { "<C-c>", "<cmd>%y+<cr>", "Window Copy file" })
+
+map({ "n", "v", "x" }, { "j", "v:count || mode()[0:1] == 'no' ? 'j' : 'gj'", "General Move down", expr = true })
+map({ "n", "v", "x" }, { "k", "v:count || mode()[0:1] == 'no' ? 'k' : 'gk'", "General Move up", expr = true })
+map({ "n", "v", "x" }, { "<down>", "v:count || mode()[0:1] == 'no' ? 'j' : 'gj'", "General Move down", expr = true })
+map({ "n", "v", "x" }, { "<up>", "v:count || mode()[0:1] == 'no' ? 'k' : 'gk'", "General Move up", expr = true })
 
 map("i", { "jk", "<Esc>", "General Escape insert mode" })
 
@@ -71,9 +76,9 @@ map("n", { "<leader>mx", "<cmd>TroubleToggle<cr>", "Trouble Toggle trouble" })
 map("n", { "<leader>mw", "<cmd>TroubleToggle workspace_diagnostics<cr>", "Trouble Toggle workspace diagnostics" })
 map("n", { "<leader>md", "<cmd>TroubleToggle document_diagnostics<cr>", "Trouble Toggle document diagnostics" })
 map("n", { "<leader>mq", "<cmd>TroubleToggle quickfix<cr>", "Trouble Toggle quickfix" })
-map("n", { "<leader>mT", "<cmd>TroubleToggle lsp_implementations<cr>", "Trouble Toggle LSP implementations" })
-map("n", { "<leader>mR", "<cmd>TroubleToggle lsp_references<cr>", "Trouble Toggle LSP references" })
 map("n", { "<leader>ml", "<cmd>TroubleToggle loclist<cr>", "Trouble Toggle loclist" })
+map("n", { "<leader>mI", "<cmd>TroubleToggle lsp_implementations<cr>", "Trouble Toggle LSP implementations" })
+map("n", { "<leader>mR", "<cmd>TroubleToggle lsp_references<cr>", "Trouble Toggle LSP references" })
 map("n", { "<leader>mD", "<cmd>TroubleToggle lsp_definitions<cr>", "Trouble Toggle LSP definitions" })
 map("n", { "<leader>mT", "<cmd>TroubleToggle lsp_type_definitions<cr>", "Trouble Toggle LSP type definitions" })
 
