@@ -2,6 +2,10 @@ local map = require("utils.keymap").map
 
 -- General
 map("n", { "<esc>", "<cmd>noh<cr>", "General Clear highlights" })
+map("n", { "j", "gj", "General Move down" })
+map("n", { "k", "gk", "General Move up" })
+map("n", { "J", "^", "General Move to beginning of line" })
+map("n", { "K", "$", "General Move to end of line" })
 map("n", { "<leader>ch", "<cmd>NvCheatsheet<cr>", "General Cheatsheet" })
 map("n", { "<leader>fm", function() end, "General Format file" })
 
@@ -26,7 +30,7 @@ map("i", { "<C-k>", "<up>", "General Move up" })
 map("i", { "<C-l>", "<right>", "General Move right" })
 
 -- LSP
-map("n", { "gh", vim.diagnostic.open_float, "LSP Show diagnostic in floating window" })
+map("n", { "<leader>lf", vim.diagnostic.open_float, "LSP Show diagnostic in floating window" })
 map("n", { "[d", vim.diagnostic.goto_prev, "LSP Go to previous diagnostic" })
 map("n", { "]d", vim.diagnostic.goto_next, "LSP Go to next diagnostic" })
 map("n", { "<leader>q", vim.diagnostic.setloclist, "LSP Open diagnostics in loclist" })

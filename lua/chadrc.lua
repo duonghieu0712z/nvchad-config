@@ -24,13 +24,8 @@ M.ui = {
   },
 
   statusline = {
-    theme = "default",
-    separator_style = "arrow",
-    modules = {
-      git = stl.git,
-      lsp_msg = stl.lsp_msg,
-      diagnostics = stl.diagnostics,
-    },
+    order = stl.order,
+    modules = stl.modules,
   },
 }
 
