@@ -14,7 +14,7 @@ return {
       "hrsh7th/cmp-nvim-lsp-document-symbol",
     },
     config = function()
-      require "nvim-utils.cmp-cmdline"
+      require "nvim-utils.cmp.cmdline"
     end,
   },
 }
