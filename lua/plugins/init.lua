@@ -21,6 +21,9 @@ return {
     opts = require "configs.telescope",
   },
 
+  -- My utilities
+  "duonghieu0712z/nvim-utils",
+
   -- Surround
   {
     "kylechui/nvim-surround",

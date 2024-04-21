@@ -2,7 +2,8 @@ return {
   {
     "hrsh7th/nvim-cmp",
     opts = function()
-      return require "configs.cmp"
+      dofile(vim.g.base46_cache .. "cmp")
+      return require "nvim-utils.cmp"
     end,
   },
 
@@ -13,7 +14,7 @@ return {
       "hrsh7th/cmp-nvim-lsp-document-symbol",
     },
     config = function()
-      require "configs.cmp-cmdline"
+      require "nvim-utils.cmp-cmdline"
     end,
   },
 }

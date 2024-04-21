@@ -1,13 +1,13 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
 
-require "utils.lsp"
+require "nvim-utils.lsp"
 
 local lspconfig = require "lspconfig"
 local mason_lsp = require "mason-lspconfig"
 local tbl = require "utils.table"
 
-local utils = require "utils.lsp.utils"
+local utils = require "nvim-utils.lsp.utils"
 local on_attach = utils.on_attach
 local on_init = utils.on_init
 local capabilities = utils.capabilities
